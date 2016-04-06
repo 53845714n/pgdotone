@@ -1,0 +1,192 @@
+<section class="cuerpo proyecto-ficha">
+	<div class="container">
+        <div class="row">
+        <h1>nombre del proyecto</h1>
+            <div class="col-sm-3 col-md-2 hidden-xs animated fadeInLeft">
+                <a class="opacidad" href="#">
+                    <div class="laterales">            
+                        <%= image_tag 'informacion1.jpg', class: 'img-responsive', alt: '' %>   
+                    <h5>Agende Visita</h5>
+                    </div>
+                </a>
+                <a class="opacidad" href="#">
+                    <div class="laterales">
+                        <%= image_tag 'informacion2.jpg', class: 'img-responsive', alt: '' %>
+                        <h5>Cotizar</h5>
+                    </div>
+                </a>
+                <a class="opacidad" href="#">
+                    <div class="laterales">
+                        <%= image_tag 'proyectos/1.jpg', class: 'img-responsive', alt: '' %>
+                        <h5>Otros Proyectos</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-5 col-md-6 animated fadeInUp foto">
+				<div class="col-xs-12" id="slider">
+                <!-- Top part of the slider -->
+                    <div class="row">
+                        <div id="carousel-bounding-box">
+                            <div class="carousel slide" id="myCarousel">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="active item" data-slide-number="0">
+                                        <%= image_tag 'proyectos/p1.jpg' %>
+                                    </div>
+
+                                    <div class="item" data-slide-number="1">
+                                        <%= image_tag 'proyectos/p2.jpg' %>
+                                    </div>
+
+                                    <div class="item" data-slide-number="2">
+                                        <%= image_tag 'proyectos/p3.jpg' %>
+                                    </div>
+
+                                    <div class="item" data-slide-number="3">
+                                        <%= image_tag 'proyectos/p4.jpg' %>
+                                    </div>
+
+                                    <div class="item" data-slide-number="4">
+                                        <%= image_tag 'proyectos/p5.jpg' %>
+                                    </div>
+
+                                    <div class="item" data-slide-number="5">
+                                        <%= image_tag 'proyectos/p6.jpg' %>
+                                    </div>
+                                    
+                                    <div class="item" data-slide-number="6">
+                                        <%= image_tag 'proyectos/p7.jpg' %>
+                                    </div>
+                                    
+                                    <div class="item" data-slide-number="7">
+                                        <%= image_tag 'proyectos/p8.jpg' %>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <!-- Carousel nav -->
+                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            </div>
+            <div class="col-sm-4 col-md-4 animated fadeInUp ">
+                <div class="row mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12774.115158702592!2d-73.11549756188964!3d-36.829809960702455!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1459036206312" class="col-xs-12" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+            	</div>
+                <div class="row galeria hidden-xs">
+                	<ul class="hide-bullets">
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-0">
+                                <%= image_tag 'proyectos/p1.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-1">
+                                <%= image_tag 'proyectos/p2.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-2">
+                                <%= image_tag 'proyectos/p3.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-3">
+                                <%= image_tag 'proyectos/p4.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-4">
+                                <%= image_tag 'proyectos/p5.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-5">
+                                <%= image_tag 'proyectos/p6.jpg' %>
+                            </a>
+                        </li>
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-6">
+                                <%= image_tag 'proyectos/p7.jpg' %>
+                            </a>
+                        </li>
+    
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-7">
+                                <%= image_tag 'proyectos/p8.jpg' %>
+                            </a>
+                        </li>
+    
+					</ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-sm-offset-2">
+            <h2>Reseña Proyecto</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+	</div>
+    
+</section>
+<section class="cuerpo2">
+	<div class="container">
+        <div class="row">
+        <h1>Modelos Departamentos</h1>
+        <div class="col-sm-3">
+                <div class="proyecto animated fadeInUp">
+                    <%= image_tag 'proyectos/1.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
+                    <h3>Departamento Tipo A</h3>
+                    <div class="proyecto-boton">
+                       <a class="btn btn-ver" href="#">Ver modelo</a>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="proyecto animated fadeInDown">
+                    <%= image_tag 'proyectos/2.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
+                    <h3>Departamento Tipo B</h3>
+                    <div class="proyecto-boton">
+                        <a class="btn btn-ver" href="#">Ver Modelo</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="proyecto animated fadeInUp">
+                    <%= image_tag 'proyectos/3.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
+                    <h3>Departamento Tipo C</h3>
+                    <div class="proyecto-boton">
+                        <a class="btn btn-ver" href="#">Ver Modelo</a>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="proyecto animated fadeInDown">
+                    <%= image_tag 'proyectos/4.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
+                    <h3>Departamento Tipo D</h3>
+                    <div class="proyecto-boton">
+                        <a class="btn btn-ver" href="#">Ver Modelo</a>
+                        
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

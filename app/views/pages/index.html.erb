@@ -1,41 +1,3 @@
-<header class="cabezera">
-    <div class="container">
-        <nav class="navbar botonera">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">
-                    	<%= image_tag 'logo.jpg' %>
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right botones">
-                        <li><a href="#">Proyectos</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
-                        <li><a href="#">Servicio al Cliente</a></li>
-                        <li><a href="#">Te Asesoramos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <!--                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>-->
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
 <section class="banner">
     <div class="container">
         <div class="row">
@@ -86,7 +48,7 @@
                     <h3>Lorem Website</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
                     <div class="proyecto-boton">
-                        <a class="btn btn-ver" href="#">Ver Proyecto</a>
+                        <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
@@ -96,7 +58,7 @@
                     <h3>Ipsum Logo</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
                     <div class="proyecto-boton">
-                        <a class="btn btn-ver" href="#">Ver Proyecto</a>
+                        <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
@@ -106,7 +68,7 @@
                     <h3>Dolor Prints</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
                     <div class="proyecto-boton">
-                        <a class="btn btn-ver" href="#">Ver Proyecto</a>
+                        <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
@@ -116,7 +78,7 @@
                     <h3>Sit Amet Website</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
                     <div class="proyecto-boton">
-                        <a class="btn btn-ver" href="#">Ver Proyecto</a>
+                        <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
@@ -197,17 +159,3 @@
         </div>
     </div>
 </section>
-<footer class="bajada">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <a class="icono-link-redes" href="#"><i class="fa fa-facebook"></i></a>
-                <a class="icono-link-redes" href="#"><i class="fa fa-twitter"></i></a>
-                <a class="icono-link-redes" href="#"><i class="fa fa-instagram"></i></a></div>
-            <div class="col-sm-6"> ©Inmobiliaria Integral Ltda. Todos los derechos Reservados<br> Calle Los Pensamientos 136, Huertos Familiares - San Pedro de la Paz.<br> Telefonos: (41) 2465555 - (41) 2379090</div>
-            <div class="col-sm-3">
-            	<%= image_tag 'logo-negro.jpg' %>
-            </div>
-        </div>
-    </div>
-</footer>
