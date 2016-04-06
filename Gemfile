@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
-gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,6 +28,10 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
