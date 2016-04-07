@@ -13,4 +13,7 @@ class PagesController < ApplicationController
 
 	def contacto
 	end
+
+	def quienes_somos
+	end
 end

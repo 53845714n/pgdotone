@@ -2,10 +2,35 @@
 body{
 	font-family: 'Oswald', sans-serif;
 }
-section.cuerpo.scliente {
+.qs img {
+    margin-top: 20px;
+}
+div.row.qs-ficha {
+	    background-color: #fff;
+    padding: 15px 15px 15px 0px;
+    margin: 15px 0px;
+}
+div.row.qs-ficha h2 {
+	font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    padding: 5px 15px;
+    background-color: #E0D100;
+    border-left: solid 5px #000000;
+    margin: 0;
+    margin-bottom: 20px;
+}
+div.ficha li {
+	font-family: 'Oswald', sans-serif;
+	margin-top: 0px;
+    font-size: 14px;
+    font-weight: 100;
+    padding: 5px 0px 5px 15px;
+}
+section.cuerpo.scliente, section.cuerpo.qs {
 	background: #fff;
 }
-section.cuerpo.scliente h2 {
+section.cuerpo.scliente h2, section.cuerpo.qs h2 {
 	font-family: 'Oswald', sans-serif;
 	font-size: 16px;
 	color: #000000;
@@ -13,7 +38,7 @@ section.cuerpo.scliente h2 {
 	background-color: #E0D100;
 	border-left: solid 5px #000000;
 }
-section.cuerpo.scliente p {
+section.cuerpo.scliente p, section.cuerpo.qs p {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 100;
 	text-align: justify;
