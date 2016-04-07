@@ -2,6 +2,26 @@
 body{
 	font-family: 'Oswald', sans-serif;
 }
+section.cuerpo.scliente {
+	background: #fff;
+}
+section.cuerpo.scliente h2 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	color: #000000;
+	padding: 5px 15px;
+	background-color: #E0D100;
+	border-left: solid 5px #000000;
+}
+section.cuerpo.scliente p {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 100;
+	text-align: justify;
+	padding: 15px;
+}
+form[name="frmContacto"] .form-control {
+	font-family: 'Oswald', sans-serif;
+}
 header.cabezera { height: 100px; }
 .navbar-brand {
     float: left;

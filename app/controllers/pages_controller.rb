@@ -10,4 +10,7 @@ class PagesController < ApplicationController
 
 	def proyectos_ficha
 	end
+
+	def contacto
+	end
 end
