@@ -16,4 +16,7 @@ class PagesController < ApplicationController
 
 	def quienes_somos
 	end
+
+	def financiamiento
+	end
 end

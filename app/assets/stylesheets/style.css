@@ -2,11 +2,19 @@
 body{
 	font-family: 'Oswald', sans-serif;
 }
+.mt-20 {
+    margin-top: 20px;
+}
+section.cuerpo {
+    background-color: #fff;
+    border-bottom: #c1bfbf solid 7px;
+    padding-bottom: 20px;
+}
 .qs img {
     margin-top: 20px;
 }
 div.row.qs-ficha {
-	    background-color: #fff;
+	background-color: #fff;
     padding: 15px 15px 15px 0px;
     margin: 15px 0px;
 }

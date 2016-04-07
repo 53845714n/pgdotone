@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/proyectos-ficha' => 'pages#proyectos_ficha', as: 'proyectos_ficha'
   get '/modelos-ficha'   => 'pages#modelos_ficha',   as: 'modelos_ficha'
   get '/quienes-somos'   => 'pages#quienes_somos',   as: 'quienes_somos'
+  get '/financiamiento'  => 'pages#financiamiento'
   get '/proyectos'       => 'pages#proyectos'
   get '/contacto'        => 'pages#contacto'
   root 'pages#index'
