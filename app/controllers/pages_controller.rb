@@ -19,4 +19,10 @@ class PagesController < ApplicationController
 
 	def financiamiento
 	end
+
+	def proceso_compra
+	end
+
+	def servicio_cliente
+	end
 end

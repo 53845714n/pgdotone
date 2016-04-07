@@ -2,8 +2,55 @@
 body{
 	font-family: 'Oswald', sans-serif;
 }
+.row h5, .row .input-group {
+	font-family: 'Oswald', sans-serif;
+}
+.scliente strong {
+    color: #CAAA00;
+}
+.scliente h2 {
+	font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    padding: 5px 15px;
+    background-color: #E0D100;
+    border-left: solid 5px #000000;
+}
+a.thumbnail { padding: 0; }
 .mt-20 {
     margin-top: 20px;
+}
+.proyecto-comuna {
+	font-family: 'Oswald', sans-serif;
+    background-color: #E9E9E9;
+}
+.proyecto-comuna h2 {
+    font-size: 18px;
+    color: #000000;
+    padding: 10px 15px;
+    background-color: #B1B0B0;
+    border-left: solid 5px #000000;
+    margin: 0;
+    margin-top: 20px;
+}
+div.desde {
+    font-size: 18px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 0px;
+    color: #e0d100;
+    margin-top: 20px;
+    text-align: center;
+}
+.ficha h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+.ficha p {
+    font-weight: 100;
+    text-align: justify;
+    padding: 15px;
 }
 section.cuerpo {
     background-color: #fff;
@@ -177,11 +224,13 @@ header.cabezera { height: 100px; }
 	padding-top:10px;
 	}
 .proyecto-ficha p {
+	font-family: 'Oswald', sans-serif;
 	font-weight:100;
 	text-align:justify;
 	padding:15px;
 	}
-.proyecto-ficha h2 {
+.proyecto-ficha h2 {	
+	font-family: 'Oswald', sans-serif;
 	font-size:16px;
 	padding-left:15px;
 	}
