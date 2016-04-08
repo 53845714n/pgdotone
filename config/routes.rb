@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
+  devise_scope :user do
+    get 'login'     => 'devise/sessions#new'
+    delete 'logout' => 'devise/sessions#destroy', :method => :delete
+  end
   #resources :pages
   get '/servicio-cliente' => 'pages#servicio_cliente', as: 'servicio_cliente'
   get '/proceso-compra'   => 'pages#proceso_compra',   as: 'proceso_compra'
