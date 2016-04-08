@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   #resources :pages
   get '/servicio-cliente' => 'pages#servicio_cliente', as: 'servicio_cliente'
   get '/proceso-compra'   => 'pages#proceso_compra',   as: 'proceso_compra'
