@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   get '/financiamiento'   => 'pages#financiamiento'
   get '/proyectos'        => 'pages#proyectos'
   get '/contacto'         => 'pages#contacto'
+
+  get '/admin'            => 'admin#index'
   root 'pages#index'
 end
