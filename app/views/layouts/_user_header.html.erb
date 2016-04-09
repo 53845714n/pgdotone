@@ -11,12 +11,14 @@
             </div>
             <div class="col-xs-12 col-sm-4 usuario">
                 <div class="pull-left">
-                    <%= image_tag 'usuario.jpg' %>
+                    <%= image_tag !current_user.image.nil? ? current_user.image : 'usuario.jpg' %>
                 </div>
                 <div class="pull-left">
-                    <h5>Nombre Usuario</h5>
+                    <h5>
+                        <%= current_user.email %>
+                    </h5>
                     <h6>
-                        <a href="#">Cerrar Sesión </a>
+                        <%= link_to 'Cerrar Sesión', logout_path, method: :delete %>
                     </h6>
                 </div>
             </div>
