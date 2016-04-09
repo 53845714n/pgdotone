@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # Create Devise routes for users, but skipping the sessions views
+  devise_for :users, :skip => [:sessions]
 
   devise_scope :user do
-    get 'login'     => 'devise/sessions#new'
+    get 'login'     => 'devise/sessions#new',     :as     => :new_user_session
+    post 'login'    => 'devise/sessions#create',  :as     => :user_session
     delete 'logout' => 'devise/sessions#destroy', :method => :delete
   end
   #resources :pages
