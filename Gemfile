@@ -16,6 +16,8 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'pry'
+gem 'carrierwave', '~> 0.11.0'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 group :production do
   gem 'rails_12factor'

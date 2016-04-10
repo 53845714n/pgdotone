@@ -1,15 +1,30 @@
 class UsersController < ApplicationController
+
+	def new 
+		@user = User.new
+	end
+
+	def create
+		@user = User.new(user_params)
+		if @user.save
+			flash[:notice] = 'El usuario fue creado exitosamente'
+			redirect_to admin_path
+		else
+			render :new
+		end
+	end
+
 	def edit
 		@user = User.find(params[:id])
 	end
 
 	def update
 		@user = User.find(params[:id])
-		
+
 		if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
 			if @user.update_without_password(user_params)
 				flash[:notice] = 'El usuario fue actualizado exitosamente'
-				sign_in @user, :bypass => true
+				#sign_in @user, :bypass => true
 				redirect_to admin_path
 			else
 				render :edit

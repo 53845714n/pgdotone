@@ -8,4 +8,8 @@ module ApplicationHelper
 			"#{page_title} | #{base_title}"
 		end
 	end
+
+	def current_image
+		current_user.image.thumb
+	end
 end

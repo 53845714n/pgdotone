@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   # Declare controller methods as helper methods to access
-  # Devise functions from another controllers
+  # them as Devise functions from another views
   helper_method :resource, :resource_name, :devise_mapping
 
   # Devise redirect user in admin views if isn't logged in
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   	if user_signed_in?
   	  super
     else
-      redirect_to login_path, notice: 'Debes iniciar sesión'
+      redirect_to new_user_session_path, notice: 'Debes iniciar sesión'
     end
   end
 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   # Devise redirect when logout, return the corresponding path
   def after_sign_out_path_for(resource)
-  	login_path
+  	new_user_session_path
   end
 
   def resource_name

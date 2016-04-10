@@ -12,7 +12,7 @@
  	
 <% if current_page?('/login') %>
 	<%= render 'layouts/login_header' %>
-<% elsif current_page?('/admin') %>
+<% elsif current_page?('/admin') || current_page?('/users/new') || current_page?("/users/#{@user.id}/edit") %>
 	<%= render 'layouts/user_header' %>
 <% else %>
 	<%= render 'layouts/header' %>

@@ -2,16 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-3">
-                <a href="#">
+                <%= link_to admin_path do %>
                     <%= image_tag 'logo.jpg', class: 'img-responsive', alt: 'logo' %>
-                </a>
+                <% end %>
             </div>
             <div class="col-xs-12 col-sm-5">
                 <h1>Panel de Aministración</h1>
             </div>
             <div class="col-xs-12 col-sm-4 usuario">
                 <div class="pull-left">
-                    <%= image_tag !current_user.image.nil? ? current_user.image : 'usuario.jpg' %>
+                    <% if !current_user.image.blank? %>
+                        <%= image_tag current_image %>
+                    <% else %> 
+                        <%= image_tag 'usuario.jpg' %>
+                    <% end %>
                 </div>
                 <div class="pull-left">
                     <h5>

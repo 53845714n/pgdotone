@@ -1,0 +1,58 @@
+<section class="cuerpo">
+	<div class="container">
+    	<div class="row">
+            <h1>Crear Nuevo Usuario</h1>
+        </div>
+        <%= form_for(@user) do |f| %>
+
+    		<%#= devise_error_messages! %>
+
+	        <div class="row blanco campos">
+
+				<% if @user.errors.full_messages.any? %>
+					<div id="error_explanation" class="col-xs-12 col-sm-12">
+						<h2>
+							<%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+						</h2>
+
+						<ul>
+							<% @user.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
+
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Nombre de usuario</h4>
+	                <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+	            </div>
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Nombre completo</h4>
+	                <%= f.text_field :fullname, autofocus: true, class: 'form-control' %>
+	            </div>
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>E-mail</h4>
+	                <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+	            </div>
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Password</h4>
+	                <% if @minimum_password_length %>
+	                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+	                <% end %>
+	                <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+	            </div>
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Confirmar password</h4>
+	                <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+	            </div>
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Imagen de usuario</h4>
+        	        <%= f.file_field :image %>
+	            </div>
+			    <%= f.submit 'Crear usuario', class: 'btn btn-create btn-ingresar' %>
+			</div>
+
+        <% end %>
+    </div>
+</section>
