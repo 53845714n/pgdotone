@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
+  # Use resources to override Devise default behavior
+  resources :users
+
   # Create Devise routes for users, but skipping the sessions views
   devise_for :users, :skip => [:sessions]
 
   devise_scope :user do
-    get 'login'     => 'devise/sessions#new',     :as     => :new_user_session
-    post 'login'    => 'devise/sessions#create',  :as     => :user_session
-    delete 'logout' => 'devise/sessions#destroy', :method => :delete
+    get 'login'               => 'devise/sessions#new',          :as     => :new_user_session
+    post 'login'              => 'devise/sessions#create',       :as     => :user_session
+    delete 'logout'           => 'devise/sessions#destroy',      :method => :delete
+    delete 'users/:id/delete' => 'devise/registrations#destroy', :as     => :delete_user 
   end
-  #resources :pages
+
   get '/servicio-cliente' => 'pages#servicio_cliente', as: 'servicio_cliente'
   get '/proceso-compra'   => 'pages#proceso_compra',   as: 'proceso_compra'
   get '/proyectos-ficha'  => 'pages#proyectos_ficha',  as: 'proyectos_ficha'
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
   get '/financiamiento'   => 'pages#financiamiento'
   get '/proyectos'        => 'pages#proyectos'
   get '/contacto'         => 'pages#contacto'
-
   get '/admin'            => 'admin#index'
+
   root 'pages#index'
 end

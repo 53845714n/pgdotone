@@ -9,6 +9,27 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" 
+                                    data-parent="#accordion" 
+                                    href="#pestana1" 
+                                    aria-expanded="true" 
+                                    aria-controls="pestana1">
+                                    <i class="fa fa-plus-circle"></i> Mantenedor de Usuarios
+                                </a>
+                                <%= link_to new_user_registration_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nuevo usuario
+                                <% end %>
+                            </h4>
+                        </div>
+                        <div id="pestana1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <%= render 'users' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
                                 <a role="button" 
                                     data-toggle="collapse" 
                                     data-parent="#accordion" 

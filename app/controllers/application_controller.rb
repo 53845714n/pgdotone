@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  # Declare controller methods as helper methods to access
+  # Devise functions from another controllers
+  helper_method :resource, :resource_name, :devise_mapping
 
   # Devise redirect user in admin views if isn't logged in
   def authenticate_user!
@@ -22,4 +25,17 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
   	login_path
   end
+
+  def resource_name
+  	:user
+  end
+
+  def resource
+  	@resource ||= User.new
+  end
+
+  def devise_mapping
+  	@devise_mapping ||= Devise.mapping[:user]
+  end
+
 end
