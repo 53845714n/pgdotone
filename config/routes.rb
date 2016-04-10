@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :questions
   # Use resources to override Devise default behavior
   resources :users do
     member do
