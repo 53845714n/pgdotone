@@ -11,10 +11,10 @@
             </div>
             <div class="col-xs-12 col-sm-4 usuario">
                 <div class="pull-left">
-                    <% if !current_user.image.blank? %>
-                        <%= image_tag current_image %>
-                    <% else %> 
+                    <% if User.find(current_user).image.blank? %>
                         <%= image_tag 'usuario.jpg' %>
+                    <% else %> 
+                        <%= image_tag current_image %>
                     <% end %>
                 </div>
                 <div class="pull-left">
