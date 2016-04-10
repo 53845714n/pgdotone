@@ -43,6 +43,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def flop
+		user = User.find(params[:id])
+		user.active = !user.active
+		user.save
+
+		redirect_to admin_path
+	end
+
 	private
 
 	def user_params

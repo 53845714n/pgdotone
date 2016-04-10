@@ -27,19 +27,19 @@
                         <%= user.admin? ? 'Admin' : 'User' %>
                     </td>
                     <td class="icono">
-                        <%= link_to edit_user_path(user.id) do %>
-                            <i class="fa fa-cog"></i>
+                        <%= link_to flop_user_path(user) do %>
+                            <% user.active_or_not %>
+                            <% if user.active? %> 
+                                <i class="fa fa-check"></i>
+                            <% else %>
+                                <i class="fa fa-close"></i>
+                            <% end %>
                         <% end %>
                     </td>
                     <td class="icono">
-                        <%#= link_to flop_user_path(user) do %>
-                            <%# user.active_or_not %>
-                            <%# if user.active? %> 
-                                <!-- <i class="fa fa-check"></i> -->
-                            <%# else %>
-                                <!-- <i class="fa fa-close"></i> -->
-                            <%# end %>
-                        <%# end %>
+                        <%= link_to edit_user_path(user.id) do %>
+                            <i class="fa fa-cog"></i>
+                        <% end %>
                     </td>
                     <td class="icono">
                         <%= link_to delete_user_path(user), method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>

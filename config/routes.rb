@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   # Use resources to override Devise default behavior
-  resources :users
+  resources :users do
+    member do
+      get :flop
+    end
+  end
 
   # Create Devise routes for users, but skipping the sessions views
   devise_for :users, :skip => [:sessions]
