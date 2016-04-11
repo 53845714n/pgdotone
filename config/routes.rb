@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :questions
+  # Use flop as a member of questions resources
+  resources :questions do
+    member do
+      get :flop
+      get :up_order
+      get :down_order
+    end
+  end
+
   # Use resources to override Devise default behavior
   resources :users do
     member do

@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'La pregunta ha sido actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -59,6 +59,28 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def flop
+    question = Question.find(params[:id])
+    question.active = !question.active
+    question.save
+
+    redirect_to admin_path
+  end
+
+  def up_order
+    question = Question.find(params[:id])
+    question.update_attributes(order: question.order + 1)
+    question.save
+    redirect_to admin_path
+  end
+
+  def down_order
+    question = Question.find(params[:id])
+    question.update_attributes(order: question.order - 1)
+    question.save
+    redirect_to admin_path
   end
 
   private

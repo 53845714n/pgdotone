@@ -14,7 +14,9 @@
 	<%= render 'layouts/login_header' %>
 <% elsif current_page?('/') %>
 	<%= render 'layouts/header' %>
-<% elsif user_signed_in? && current_page?('/admin') || current_page?('/users/new') || current_page?(controller: 'users', action: 'edit') %>
+<% elsif user_signed_in? && current_page?('/admin') || 
+	current_page?(action: 'new') || 
+	current_page?(action: 'edit') %>
 	<%= render 'layouts/user_header' %>
 <% end %>
 

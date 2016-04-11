@@ -1,6 +1,48 @@
-<h1>Editing Question</h1>
+<section class="cuerpo">
+	<div class="container">
+		<div class="row">
+			<h1>Editar pregunta</h1>
+		</div>    	
+		<%= form_for(@question) do |f| %>
+			<div class="row blanco campos">
+				<% if @question.errors.any? %>
+					<div id="error_explanation" class="col-xs-12 col-sm-12">
+						<h2>
+							<%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:
+						</h2>
 
-<%= render 'form' %>
+						<ul>
+							<% @question.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
 
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= f.label :name, 'Nombre' %><br>
+					<%= f.text_field :name, class: 'form-control' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= f.label :answer, 'Respuesta' %><br>
+					<%= f.text_area :answer, class: 'form-control' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= f.label :active, 'Estado' %><br>
+					<%= f.check_box :active %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= f.label :order, 'Orden' %><br>
+					<%= f.number_field :order, class: 'form-control' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= f.submit 'Editar pregunta', class: 'btn btn-create btn-ingresar' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= link_to 'Volver', admin_path %>
+				</div>
+			</div>
+		<% end %>
+
+	</div>
+</section>

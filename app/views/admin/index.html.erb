@@ -39,117 +39,14 @@
                                     aria-controls="pestana2">
                                     <i class="fa fa-plus-circle"></i> Mantenedor de Preguntas Frecuentes
                                 </a>
+                                <%= link_to new_question_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nueva pregunta
+                                <% end %>
                             </h4>
                         </div>
                         <div id="pestana2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
-                                <div class="mantenedor-tabla">
-                                    <table>
-                                        <thead>
-                                            <tr class="mantenedor-titulo">
-                                                <td width="15%">Orden</td>
-                                                <td width="10%">Estado</td>
-                                                <td width="45%">Nombre Pregunta</td>
-                                                <td width="10%">Editar</td>
-                                                <td width="10%">Des/Act</td>
-                                                <td width="10%">Eliminar</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-arrow-up"></i>
-                                                    </a>
-                                                    <a href="#"> 
-                                                        <i class="fa fa-arrow-down"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa fa-dot-circle-o"></i>
-                                                    </a>
-                                                </td>
-                                                <td>Pregunta 1</td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-cog"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-power-off"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-arrow-up"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fa fa-arrow-down"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa fa-dot-circle-o"></i>
-                                                    </a>
-                                                </td>
-                                                <td>Pregunta 2</td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-cog"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-power-off"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-arrow-up"></i>
-                                                    </a>
-                                                    <a href="#"> <i class="fa fa-arrow-down"></i>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa fa-dot-circle-o"></i>
-                                                    </a>
-                                                </td>
-                                                <td>Pregunta 3</td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-cog"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-power-off"></i>
-                                                    </a>
-                                                </td>
-                                                <td class="icono">
-                                                    <a href="#">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <%= render 'questions' %>
                             </div>
                         </div>
                     </div>
