@@ -25,4 +25,11 @@ class PagesController < ApplicationController
 
 	def servicio_cliente
 	end
+
+	def new
+	end
+
+	def edit
+	end 
+	
 end

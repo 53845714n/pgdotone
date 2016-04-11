@@ -12,7 +12,7 @@
  	
 <% if current_page?('/login') %>
 	<%= render 'layouts/login_header' %>
-<% elsif current_page?('/') %>
+<% elsif current_page?('/') || current_page?('/proyectos') || current_page?('/modelos-ficha') || current_page?('/proyectos-ficha') || current_page?('/quienes-somos') || current_page?('/servicio-cliente') || current_page?('/financiamiento') || current_page?('/contacto') %>
 	<%= render 'layouts/header' %>
 <% elsif user_signed_in? && current_page?('/admin') || 
 	current_page?(action: 'new') || 

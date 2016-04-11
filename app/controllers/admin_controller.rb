@@ -5,6 +5,7 @@ class AdminController < ApplicationController
 	def index
 		@users     = User.all.order('id DESC')
 		@questions = Question.all.order(order: :desc)
+		@banners   = Banner.all
 	end
 
 

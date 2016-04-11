@@ -1,0 +1,45 @@
+<div class="mantenedor-tabla">
+    <table>
+        <thead>
+            <tr class="mantenedor-titulo">
+                <td  width="20%">Video</td>
+                <td  width="20%">Imagen</td>
+                <td  width="20%">Des/Act</td>
+                <td  width="20%">Editar</td>
+                <td  width="20%">Eliminar</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @banners.each do |banner| %>
+                <tr>
+                    <td>
+                        <%= banner.video %>
+                    </td>
+                    <td>
+                        <%= banner.image %>
+                    </td>
+                    <td class="icono">
+                        <%#= link_to flop_banner_path(banner) do %>
+                            <%# banner.active_or_not %>
+                            <%# if banner.active? %> 
+                               <!--  <i class="fa fa-check"></i> -->
+                            <%# else %>
+                                <!-- <i class="fa fa-close"></i> -->
+                            <%# end %>
+                        <%# end %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to edit_banner_path(banner.id) do %>
+                            <i class="fa fa-cog"></i>
+                        <% end %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to delete_banner_path(banner), method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
+                            <i class="fa fa-trash"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

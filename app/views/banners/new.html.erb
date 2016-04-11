@@ -1,0 +1,50 @@
+<section class="cuerpo">
+  <div class="container">
+      <div class="row">
+            <h1>Crear Nuevo Banner</h1>
+        </div>
+        <%= form_for(@banner) do |f| %>
+            <div class="row blanco campos">
+                <% if @banner.errors.any? %>
+                    <div id="error_explanation" class="col-xs-12 col-sm-12">
+                        <h2>
+                            <%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:
+                        </h2>
+
+                        <ul>
+                            <% @banner.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+                
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Video de banner</h4>
+                    <%= f.file_field :video %>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Imagen de banner</h4>
+                    <%= f.file_field :image %>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Estado (visible/no visible)</h4>
+                    <%= f.check_box :active %>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Imagen de banner</h4>
+                    <%= f.number_field :order, class: 'form-control' %>
+                </div>
+                <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+                    <%= f.submit 'Crear banner', class: 'btn btn-create btn-ingresar' %>
+                </div>
+                <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+                    <%= link_to 'Volver', admin_path %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</section>
+
+root
+197d2d9e4995426e

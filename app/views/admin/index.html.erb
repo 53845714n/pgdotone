@@ -50,17 +50,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default"><!-- BANNERS -->
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pestana3" aria-expanded="false" aria-controls="pestana3">
+                                <a class="collapsed" 
+                                    role="button" 
+                                    data-toggle="collapse" 
+                                    data-parent="#accordion" 
+                                    href="#pestana3" 
+                                    aria-expanded="false" 
+                                    aria-controls="pestana3">
                                     <i class="fa fa-plus-circle"></i> Mantenedor de Banners
                                 </a>
+                                <%= link_to new_banner_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nuevo banner
+                                <% end %>
                             </h4>
                         </div>
                         <div id="pestana3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                CONTENIDO MANTENEDOR DE BANNERS
+                                <%= render 'banners' %>
                             </div>
                         </div>
                     </div>
