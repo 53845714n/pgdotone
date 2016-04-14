@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get '/quienes-somos'    => 'pages#quienes_somos',    as: 'quienes_somos'
   get '/financiamiento'   => 'pages#financiamiento'
   get '/proyectos'        => 'pages#proyectos'
-  get '/contacto'         => 'pages#contacto'
+  get '/contacto'         => 'contacts#new'
   get '/admin'            => 'admin#index'
 
   get '/modelos/edificio-toscana'         => 'pages#edificio_toscana',         as: 'toscana'

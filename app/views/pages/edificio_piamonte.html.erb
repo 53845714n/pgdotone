@@ -51,42 +51,38 @@
         		</div>
         	</div>
 
-			<div class="col-sm-12 col-xs-12">
+			<div class="col-sm-12 col-xs-12" style="margin-top: 19px;">
 				<hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 			</div>
 
-	<div class="col-sm-12 col-xs-12">
-        	<div class="col-sm-6 col-xs-6">
-				<%= link_to image_tag('swiper/piamonte/main.jpg', class: 'img-responsive img-thumbnail img-swiper', alt: 'Edifio Piamonte', style: 'width: 500px; margin-top: 4px;'), image_path('swiper/piamonte/main.jpg'), :data => { :rel => "lightcase" } %>
-			</div>
+			<div class="col-sm-12 col-xs-12" style="margin-bottom: 28px;">
+	        	<div class="col-sm-6 col-xs-6">
+					<%= link_to image_tag('swiper/piamonte/main.jpg', class: 'img-responsive img-thumbnail img-swiper', alt: 'Edifio Piamonte', style: 'width: 500px; margin-top: 24px;'), image_path('swiper/piamonte/main.jpg'), :data => { :rel => "lightcase" } %>
+				</div>
 			
 				<div class="col-sm-6 col-xs-6">
-					<div class="container">
-						<div class="row">
-							<div class="data-container" style="margin-top: 20px;">
-								<div class="data-h3-cont" style="padding-left: 25px;">
-									<div class="col-sm-3 col-xs-3">
-										<h3 style="font-family: 'Oswald', sans-serif;">Número de Dormitorios</h3>
-										<h3 style="font-family: 'Oswald', sans-serif;">Número de Baños</h3>
-										<h3 style="font-family: 'Oswald', sans-serif;">Superficie Útil</h3>
-										<h3 style="font-family: 'Oswald', sans-serif;">Superficie Terraza</h3>
-										<h3 style="font-family: 'Oswald', sans-serif;">Superficie total</h3>
-									</div>
-									<div class="col-sm-3 col-xs-3">
-										<h3 style="text-align: right;margin-right: 45px;" class="h3-bed">2</h3>
-										<h3 style="text-align: right;margin-right: 45px;" class="h3-bath">2</h3>
-										<h3 style="text-align: right;margin-right: 45px;" class="h3-surface">98mt²</h3>
-										<h3 style="text-align: right;margin-right: 45px;" class="h3-roof">12mt²</h3>
-										<h3 style="text-align: right;margin-right: 45px;" class="h3-total">110mt²</h3>
-									</div>
-								</div>
-								<div class="col-sm-6 col-xs-6 text-center">
-									<h1 style="color: #e0d100;">Viviendas desde 1.234UF</h1>
-									<h1 style="color: #e0d100;">
-										<%= link_to 'Cotizar Aquí', contacto_path, style: 'color: inherit;text-decoration: none;' %>
-									</h1>
-								</div>
+					<div class="data-container" style="margin-top: 28px;">
+						<div class="data-h3-cont" style="padding-left: 25px;">
+							<div class="col-sm-6 col-xs-6">
+								<h3 style="font-family: 'Oswald', sans-serif;">Número de Dormitorios</h3>
+								<h3 style="font-family: 'Oswald', sans-serif;">Número de Baños</h3>
+								<h3 style="font-family: 'Oswald', sans-serif;">Superficie Útil</h3>
+								<h3 style="font-family: 'Oswald', sans-serif;">Superficie Terraza</h3>
+								<h3 style="font-family: 'Oswald', sans-serif;">Superficie total</h3>
 							</div>
+							<div class="col-sm-6 col-xs-6">
+								<h3 style="text-align: right;" class="h3-bed">2</h3>
+								<h3 style="text-align: right;" class="h3-bath">2</h3>
+								<h3 style="text-align: right;" class="h3-surface">98mt²</h3>
+								<h3 style="text-align: right;" class="h3-roof">12mt²</h3>
+								<h3 style="text-align: right;" class="h3-total">110mt²</h3>
+							</div>
+						</div>
+						<div class="col-sm-6 col-xs-6 text-center">
+							<h1 style="color: #e0d100;width: 540px;">Viviendas desde 1.234UF</h1>
+							<h1 style="color: #e0d100;width: 540px;">
+								<%= link_to 'Cotizar Aquí', contacto_path, style: 'color: inherit;text-decoration: none;' %>
+							</h1>
 						</div>
 					</div>
 				</div>
@@ -94,3 +90,13 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function(event) {
+	$(function(){ // jQuery dom ready event
+    if (window.location.href.toLowerCase().indexOf("loaded") < 0) {
+        window.location = window.location.href + '?loaded=1'
+    }
+});
+	});
+</script>

@@ -4,37 +4,38 @@
             <h1>Contacto </h1>
             <div class="col-md-6">
                 <h2>Deje su Mensaje</h2>
-                <p>Para contactarse con nosotros complete el siguiente formulario, recibiremos cualquier consulta y la responderemos a la brevedad posible.</p>
-                <form name="frmContacto"  method="post"  action="envia.php" validate>
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input name="first_name" type="text" class="form-control" placeholder="Su Nombre" required data-validation-required-message="Por favor ingrese su nombre.">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input name="email" type="email" class="form-control" placeholder="Dirección de Email" required data-validation-required-message="Por favor ingrese su Email.">
+                <p>Para contactarse con nosotros complete el siguiente formulario, recibiremos cualquier consulta y la responderemos a la brevedad posible.
+                
+               <%= form_for(@contact) do |f| %>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <%= f.text_field :name, class: 'form-control', placeholder: 'Su nombre' %>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <%= f.text_field :email, class: 'form-control', placeholder: 'Dirección de Email' %>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <%= f.text_field :phone,  class: 'form-control', placeholder: 'Numero de Teléfono' %>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Teléfono</label>
-                            <input name="telephone" type="text" class="form-control" placeholder="Numero de Teléfono" required data-validation-required-message="Por favor ingrese su Teléfono.">
-                        </div>
+                    <div class="form-group">
+                        <label>Asunto</label>
+                        <%= f.text_field :subject,  class: 'form-control', placeholder: 'Asunto' %>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>Asunto</label>
-                    <input name="asunto" type="text" class="form-control" placeholder="Asunto" required data-validation-required-message="Por favor ingrese un Asunto.">
-                </div>
-                <div class="form-group">
-                    <label>Mensaje</label>
-                    <textarea name="comments"  class="form-control" placeholder="Escriba su mensaje aquí..." required data-validation-required-message="Por favor ingrese su Mensaje." style="height:100px;"></textarea>
-                </div>
-                        <input type="submit" name="Submit" class="btn btn-ingresar"  value="Enviar Mensaje" />
-                        <!--<button type="submit" class="btn btn-two">Enviar Mensaje</button>--><p><br/></p>
-                    </form>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <%= f.text_area :message, class: 'form-control', placeholder: 'Escriba su mensaje aquí...' %>
+                    </div>
+                     <%= f.submit 'Enviar Mensaje', class: 'btn btn-ingresar', style: 'padding: 10px; border-radius: 0;' %>
+                    <!--<button type="submit" class="btn btn-two">Enviar Mensaje</button>--><p><br/></p>
+                <% end %>
             </div>
             <div class="col-md-6">
                 <div class="row">

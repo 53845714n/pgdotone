@@ -28,10 +28,10 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to contacto_path, notice: 'Su mensaje ha sido enviado con éxito.' }
         format.json { render :show, status: :created, location: @contact }
       else
-        format.html { render :new }
+        format.html { redirect_to contacto_path, notice: 'No se ha podido enviar el mensaje, verifique y complete los campos.' }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
