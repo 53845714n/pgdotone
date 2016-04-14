@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contacts
   resources :pages
   resources :banners
   # Use flop as a member of questions resources
