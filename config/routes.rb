@@ -38,5 +38,10 @@ Rails.application.routes.draw do
   get '/contacto'         => 'pages#contacto'
   get '/admin'            => 'admin#index'
 
+  get '/modelos/edificio-toscana'         => 'pages#edificio_toscana',         as: 'toscana'
+  get '/modelos/edificio-piamonte'        => 'pages#edificio_piamonte',        as: 'piamonte'
+  get '/modelos/parque-condominio-ligure' => 'pages#parque_condominio_ligure', as: 'ligure'
+  get '/modelos/edificio-montecastello'   => 'pages#edificio_montecastello',   as: 'montecastello'
+
   root 'pages#index'
 end
