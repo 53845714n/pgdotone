@@ -11,17 +11,17 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                    	<%= image_tag 'banner/banner1.jpg', alt: '...' %>
+                    	<%= image_tag 'slider-1.jpg', alt: '...' %>
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <div class="item">
-                    	<%= image_tag 'banner/banner2.jpg', alt: '...' %>
+                    	<%= image_tag 'slider-2.jpg', alt: '...' %>
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <div class="item">
-                    	<%= image_tag 'banner/banner3.jpg', alt: '...' %>
+                    	<%= image_tag 'slider-3.jpg', alt: '...' %>
                         <div class="carousel-caption">
                         </div>
                     </div>
@@ -43,40 +43,40 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <div class="proyecto animated fadeInUp">
-                	<%= image_tag 'proyectos/1.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
-                    <h3>Lorem Website</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+                <div class="proyecto animated fadeInUp" style="height: 452px;">
+                	<%= image_tag 'project-sliders/toscana/toscana01.jpg', class: 'img-responsive', alt: 'Lorem Website', style: 'width: 262.5px; height: 197px;' %>
+                    <h3>Edificio Toscana</h3>
+                    <p style="line-height: 29px;">Edificio Condominio Toscana es un nuevo proyecto de Inmobiliaria Integral, ubicado en unos de los mejores barrios de San Pedro de la Paz, con excelente conectividad...</p>
                     <div class="proyecto-boton">
                         <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="proyecto animated fadeInDown">
-                	<%= image_tag 'proyectos/2.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
-                    <h3>Ipsum Logo</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+                <div class="proyecto animated fadeInDown" style="height: 452px;">
+                	<%= image_tag 'project-sliders/piamonte/19_20151124183659.jpg', class: 'img-responsive', alt: 'Lorem Website', style: 'width: 262.5px; height: 197px;' %>
+                    <h3>Edificio Piamonte</h3>
+                    <p style="line-height: 29px;">Edificio Condominio Piamonte es un nuevo proyecto de Inmobiliaria Integral, ubicado en unos de los mejores barrios de la comuna de Concepción.</p>
                     <div class="proyecto-boton">
                         <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="proyecto animated fadeInUp">
-                	<%= image_tag 'proyectos/3.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
-                    <h3>Dolor Prints</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+                <div class="proyecto animated fadeInUp" style="height: 452px;">
+                	<%= image_tag 'project-sliders/ligure/hualpen03-copy.jpg', class: 'img-responsive', alt: 'Lorem Website', style: 'width: 262.5px; height: 197px;' %>
+                    <h3>Parque Condominio Ligure</h3>
+                    <p style="margin: 35px 0 77px 10px; line-height: 29px;">PROXIMAMENTE</p>
                     <div class="proyecto-boton">
                         <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="proyecto animated fadeInDown">
-                	<%= image_tag 'proyectos/4.jpg', class: 'img-responsive', alt: 'Lorem Website' %>
-                    <h3>Sit Amet Website</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...</p>
+                <div class="proyecto animated fadeInDown" style="height: 452px;">
+                	<%= image_tag 'project-sliders/montecastello/2_20130124124401_grande.jpg', class: 'img-responsive', alt: 'Lorem Website', style: 'width: 262.5px; height: 197px;' %>
+                    <h3>Edificio MonteCastello</h3>
+                    <p style="line-height: 29px;">Edificio Montecastello ubicado cerca de varios centros importantes de servicios, como universidades, Mall, Hoteles, Aeropuerto, Clínicas, Colegios...</p>
                     <div class="proyecto-boton">
                         <%= link_to 'Ver Proyecto', modelos_ficha_path, class: 'btn btn-ver' %>
                     </div>
@@ -87,16 +87,18 @@
             <div class="col-sm-6">
                 <h2>Financiamiento</h2>
                 <%= image_tag 'informacion1.jpg', class: 'img-responsive' %>
-                <p>Queremos orientarte para que tomes la mejor decisión de compra para tu casa, departamento u oficina. Para eso nuestros ejecutivos te ofrecerán alternativas de financiamiento con instituciones en convenio con la inmobiliaria</p>
-                <a class="btn btn-ingresar" href="#">Información General</a>
-                <a class="btn btn-ingresar" href="#">Crédito Hipotecario</a>
-                <a class="btn btn-ingresar" href="#">Subsidio</a>
+                <p>
+                    Lo que necesitas conocer al momento de tramitar tu crédito hipotecario con alguna entidad financiera, nuestras ejecutivas te informarán cuales son los convenios vigentes con la inmobiliaria.
+                </p>
+                <%= link_to 'Información General', financiamiento_path, class: 'btn btn-ingresar', style: 'padding: 10px; border-radius: 0;' %>
             </div>
             <div class="col-sm-6">
                 <h2>Proceso de Compra</h2>
                 <%= image_tag 'informacion2.jpg', class: 'img-responsive' %>
-                <p>Queremos orientarte para que tomes la mejor decisión de compra para tu casa, departamento u oficina. Para eso nuestros ejecutivos te ofrecerán alternativas de financiamiento con instituciones en convenio con la inmobiliaria</p>
-                <a class="btn btn-ingresar" href="#">Como Comprar</a>
+                <p>
+                    En esta importante etapa, es necesario conocer en detalle el proceso que implican cada paso a seguir en la compra de una vivienda...
+                </p>
+                <%= link_to 'Como comprar', proceso_compra_path, class: 'btn btn-ingresar', style: 'padding: 10px; border-radius: 0;' %>
             </div>
         </div>
     </div>
@@ -114,23 +116,23 @@
                         <li data-target="#carousel-consejos" data-slide-to="2"></li>
                     </ol>
                     <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
+                    <div class="carousel-inner" role="listbox" style="margin-bottom: 10px;">
                         <div class="item active">
-                        	<%= image_tag 'banner/banner1.jpg', alt: '...' %>
+                        	<%= image_tag 'consejos/01.jpg', alt: '...', style: 'height: 278px;' %>
                             <div class="carousel-caption">
-                                <h5> TITULO DE CONSEJOS PARA TU HOGAR N°1</h5>
+                                <h5>Durante el primer año es fundamental ventilar su vivienda.</h5>
                             </div>
                         </div>
                         <div class="item">
-                        	<%= image_tag 'banner/banner2.jpg', alt: '...' %>
+                        	<%= image_tag 'consejos/02.jpg', alt: '...', style: 'height: 278px;' %>
                             <div class="carousel-caption">
-                                <h5> TITULO DE CONSEJOS PARA TU HOGAR N°1</h5>
+                                <h5>Revisar y mantener sus griferías en forma periódica, para evitar filtraciones.</h5>
                             </div>
                         </div>
                         <div class="item">
-                        	<%= image_tag 'banner/banner3.jpg', alt: '...' %>
+                        	<%= image_tag 'consejos/03.jpg', alt: '...', style: 'height: 278px;' %>
                             <div class="carousel-caption">
-                                <h5> TITULO DE CONSEJOS PARA TU HOGAR N°1</h5>
+                                <h5> Limpiar todos los sifones de lavamanos y lavaplatos periódicamente.</h5>
                             </div>
                         </div>
                     </div>
@@ -139,20 +141,21 @@
             <div class="col-sm-6 ">
                 <div class="noticia">
                     <div class="col-xs-6 ">
-						<%= image_tag 'noticia1.jpg', class: 'img-responsive' %>
+						<%= image_tag 'noticias/notice01.jpg', class: 'img-responsive' %>
                     </div>
                     <div class="col-xs-6">
-                        <h3>TITULO DE NOTICIA EN DOS LINEAS EN ALTAS</h3>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"</p>
+                        <h3 style="font-size: 22px;">Novedades de la Feria Inmobiliaria de Concepción 2016</h3>
+                        <p>
+                            Con atractivas ofertas, entre el 14 y 17 de abril se realizará el evento inmobiliario más importante de la zona Sur...<!--, organizado por la Cámara Chilena de la Construcción.</p>-->
                     </div>
                 </div>
                 <div class="noticia">
                     <div class="col-xs-6 ">
-                    	<%= image_tag 'noticia1.jpg', class: 'img-responsive' %>
+                    	<%= image_tag 'noticias/notice02.jpg', class: 'img-responsive' %>
                     </div>
                     <div class="col-xs-6">
-                        <h3>TITULO DE NOTICIA EN DOS LINEAS EN ALTAS</h3>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"</p>
+                        <h3 style="font-size: 22px;">Precios de los departamentos en Concepción continúan mostrando alzas</h3>
+                        <p>En el caso de San Pedro de La Paz la situación es diferente, pues allí los departamentos muestran caídas, pasando desde un valor ... <!-- de UF 35 a UF 34 por metro cuadrado entre el primer y segundo trimestre de 2015 e iguales valores entre el segundo cuarto de 2014 y el mismo periodo de 2015 representando una caída de -2,9%.</p>-->
                     </div>
                 </div>
             </div>

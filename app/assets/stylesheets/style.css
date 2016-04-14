@@ -437,11 +437,7 @@ a.icono-link-redes i {
 	}
 
 .btn-ingresar:hover{
-	background-color:#000;
-	padding:10px;
-	border-radius:0px;
-	color:#e0d100;
-	transition: color 600ms, background-color 600ms;
+	color:#e0d100 !important;
 	}
 .btn-ver{
 	padding: 10px !important;
