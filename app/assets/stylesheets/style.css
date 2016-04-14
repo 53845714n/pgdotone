@@ -2,6 +2,12 @@
 body{
 	font-family: 'Oswald', sans-serif;
 }
+.swiper-slide .img-responsive {
+	-webkit-filter: grayscale(0%);
+}
+.yes-filter {
+	-webkit-filter: grayscale(100%);
+}
 .row h5, .row .input-group {
 	font-family: 'Oswald', sans-serif;
 }

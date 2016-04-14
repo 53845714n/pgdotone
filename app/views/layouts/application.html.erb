@@ -12,7 +12,7 @@
  	
 <% if current_page?('/login') %>
 	<%= render 'layouts/login_header' %>
-<% elsif current_page?('/') || current_page?('/proyectos') || current_page?('/modelos-ficha') || current_page?('/proyectos-ficha') || current_page?('/quienes-somos') || current_page?('/servicio-cliente') || current_page?('/financiamiento') || current_page?('/contacto') %>
+<% elsif current_page?('/')  || current_page?('/proyectos')  || current_page?('/modelos-ficha')  || current_page?('/proyectos-ficha')  || current_page?('/quienes-somos')  || current_page?('/servicio-cliente')  || current_page?('/financiamiento')  || current_page?('/contacto')  || current_page?('/modelos/edificio-toscana') || current_page?('/modelos/edificio-piamonte') || current_page?('/modelos/parque-condominio-ligure') || current_page?('/modelos/edificio-montecastello') %>
 	<%= render 'layouts/header' %>
 <% elsif user_signed_in? && current_page?('/admin') || 
 	current_page?(action: 'new') || 
@@ -33,6 +33,52 @@
 
 <%= yield %>
 <%= render 'layouts/footer' %>
+
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var mySwiper = new Swiper ('.swiper-container', {
+			pagination: '.swiper-pagination',
+	        slidesPerView: 3,
+	        paginationClickable: true,
+	        spaceBetween: 30
+		});
+	});     
+</script>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		$('a[data-rel^=lightcase]').lightcase();
+	});
+</script>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		$("div.swiper-slide").click(function() {
+
+			var bed     = $(this).children('img').attr('data-bed');
+			var bath    = $(this).children('img').attr('data-bath');
+			var surface = $(this).children('img').attr('data-surface');
+			var roof    = $(this).children('img').attr('data-roof');
+			var total   = Math.round(parseFloat((surface) + parseFloat(roof)) * 100) / 100;
+
+			console.log(total);
+
+			$("div.swiper-slide").addClass('yes-filter');
+			$(this).removeClass('yes-filter');
+			$('.img-swiper').addClass('animated fadeOut');
+			$('.img-swiper').attr('src', $(this).children('img').attr('src'));
+			$('.img-swiper').removeClass('animated fadeOut').addClass('animated fadeIn');
+
+			if (bed != null && bath != null && surface != null && roof != null && total != null) {
+				console.log('hay valores');
+				$(".h3-bed").text(bed);
+				$(".h3-bath").text(bath);
+				$(".h3-surface").text(surface);
+				$(".h3-roof").text(roof);
+				$(".h3-total").text(total);
+			}
+		});
+	});
+</script>
 
 </body>
 </html>

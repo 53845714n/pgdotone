@@ -31,5 +31,17 @@ class PagesController < ApplicationController
 
 	def edit
 	end 
+
+	def edificio_toscana
+	end
+
+	def edificio_piamonte
+	end
+
+	def parque_condominio_ligure
+	end
+
+	def edificio_montecastello
+	end
 	
 end
