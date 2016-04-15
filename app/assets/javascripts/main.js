@@ -14,7 +14,8 @@ $("div.swiper-slide").click(function() {
 	var bath    = $(this).children('img').attr('data-bath');
 	var surface = $(this).children('img').attr('data-surface');
 	var roof    = $(this).children('img').attr('data-roof');
-	var total   = Math.round(parseFloat((surface) + parseFloat(roof)) * 100) / 100;
+	var total = parseFloat(surface) + parseFloat(roof);
+	var round_total = Math.round(total * 100) / 100;
 
 	$("div.swiper-slide").addClass('yes-filter');
 	$(this).removeClass('yes-filter');
@@ -22,11 +23,11 @@ $("div.swiper-slide").click(function() {
 	$('.img-swiper').attr('src', $(this).children('img').attr('src'));
 	$('.img-swiper').removeClass('animated fadeOut').addClass('animated fadeIn');
 
-	if (bed != null && bath != null && surface != null && roof != null && total != null) {
+	if (bed != null && bath != null && surface != null && roof != null) {
 		$(".h3-bed").text(bed);
 		$(".h3-bath").text(bath);
-		$(".h3-surface").text(surface);
-		$(".h3-roof").text(roof);
-		$(".h3-total").text(total);
+		$(".h3-surface").text(surface + ' m2');
+		$(".h3-roof").text(roof + ' m2');
+		$(".h3-total").text(round_total + ' m2');
 	}
 });
