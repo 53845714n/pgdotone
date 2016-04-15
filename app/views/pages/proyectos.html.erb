@@ -54,8 +54,11 @@
                                 <div class="desde">Valor desde <strong>2000</strong> UF</div>
                             </div>
                             <div class="col-sm-6">
-                            <iframe src="http://maps.google.com/maps?q=-36.79192093078731,-73.06022057874299&z=15&output=embed" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
-                            </iframe>
+                                <a class="popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12780.438653495952!2d-73.06022100000001!3d-36.791921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ3JzMwLjkiUyA3M8KwMDMnMzYuOCJX!5e0!3m2!1ses!2sus!4v1460739067291">
+                                    Ver Edificio Piamonte
+                                </a>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12780.438653495952!2d-73.06022100000001!3d-36.791921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ3JzMwLjkiUyA3M8KwMDMnMzYuOCJX!5e0!3m2!1ses!2sus!4v1460739067291" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
                     </div>
@@ -120,7 +123,10 @@
                                 <div class="desde">Valor desde <strong>7200</strong> UF</div>
                             </div>
                             <div class="col-sm-6">
-                                <iframe src="http://maps.google.com/maps?q=-36.793265539090456,-73.05854151589966&z=15&output=embed" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
+                                <a class="popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12780.214441616024!2d-73.058541!3d-36.793265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ3JzM1LjgiUyA3M8KwMDMnMzAuOCJX!5e0!3m2!1ses!2sus!4v1460739112168">
+                                    Ver Edificio Piamonte
+                                </a>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12780.214441616024!2d-73.058541!3d-36.793265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ3JzM1LjgiUyA3M8KwMDMnMzAuOCJX!5e0!3m2!1ses!2sus!4v1460739112168" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
                             </iframe>
                             </div>
                         </div>
@@ -168,7 +174,10 @@
                                 <div class="desde">Valor desde <strong>1.500</strong> UF</div>
                             </div>
                             <div class="col-sm-6">
-                                <iframe src="http://maps.google.com/maps?q=-36.8343570649007,-73.11251292569733&z=15&output=embed" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
+                                <a class="popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12773.355903099578!2d-73.112513!3d-36.834357000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDUwJzAzLjciUyA3M8KwMDYnNDUuMCJX!5e0!3m2!1ses!2sus!4v1460739178514">
+                                    Ver Edificio Piamonte
+                                </a>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12773.355903099578!2d-73.112513!3d-36.834357000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDUwJzAzLjciUyA3M8KwMDYnNDUuMCJX!5e0!3m2!1ses!2sus!4v1460739178514" width="300" height="250" frameborder="0" style="border:0" allowfullscreen>
                                 </iframe>
                             </div>
                         </div>
@@ -277,5 +286,34 @@
             loop: true,
             effect: 'fade'
         });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        $('.popup-gmaps').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
+            fixedContentPos: false,
+            callbacks: {
+                open: function () {
+                    new YT.Player('player', {
+                        events: {
+                            'onStateChange': onPlayerStateChange
+                        }
+                    });
+                }
+            }
+        });
+
+        function onPlayerStateChange(event) {
+            switch (event.data) {
+                case YT.PlayerState.ENDED:
+                    $.magnificPopup.close();
+                    break;
+            }
+        }
     });
 </script>
