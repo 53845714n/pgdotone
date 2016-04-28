@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require galeria
+//= require magnific
+//= require lightcase
+//= require swiper
+//= require main
+//= require nprogress
+//= require nprogress-turbolinks

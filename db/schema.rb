@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414071404) do
+ActiveRecord::Schema.define(version: 20160428024746) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "articles", force: :cascade do |t|
+    t.string   "article_name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.integer  "subcategory_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["subcategory_id"], name: "index_articles_on_subcategory_id"
 
   create_table "banners", force: :cascade do |t|
     t.boolean  "active",     default: false
@@ -23,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160414071404) do
     t.datetime "updated_at",                 null: false
     t.text     "video"
     t.text     "image"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -49,6 +64,15 @@ ActiveRecord::Schema.define(version: 20160414071404) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "subcategory_name"
+    t.integer  "category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -58,8 +82,6 @@ ActiveRecord::Schema.define(version: 20160414071404) do
     t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
@@ -67,9 +89,11 @@ ActiveRecord::Schema.define(version: 20160414071404) do
     t.text     "image"
     t.string   "username"
     t.string   "fullname"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

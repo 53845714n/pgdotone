@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :articles
+  resources :subcategories
+  resources :categories
   resources :contacts
   resources :pages
   resources :banners
