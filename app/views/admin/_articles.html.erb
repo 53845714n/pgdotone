@@ -17,7 +17,8 @@
                         <%= article.article_name %>
                     </td>
                     <td>
-                        <%= article.description %>
+                        <%= simple_format(article.description, {}, sanitize: false) %>
+                        <%#= article.description %>
                     </td>
                     <td>
                         <%= category_name_through_id(article.category_id).nil? ? 'sin categoria' : category_name_through_id(article.category_id) %>

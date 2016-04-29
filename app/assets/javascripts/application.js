@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/init
 //= require bootstrap-sprockets
 //= require galeria
 //= require magnific
@@ -21,3 +22,5 @@
 //= require main
 //= require nprogress
 //= require nprogress-turbolinks
+//= require ckeditor/init
+//= require ckeditor/config
