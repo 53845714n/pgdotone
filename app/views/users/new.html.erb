@@ -4,17 +4,13 @@
             <h1>Crear Nuevo Usuario</h1>
         </div>
         <%= form_for(@user) do |f| %>
-
     		<%#= devise_error_messages! %>
-
 	        <div class="row blanco campos">
-
 				<% if @user.errors.full_messages.any? %>
 					<div id="error_explanation" class="col-xs-12 col-sm-12">
 						<h2>
 							<%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
 						</h2>
-
 						<ul>
 							<% @user.errors.full_messages.each do |message| %>
 								<li><%= message %></li>
@@ -22,7 +18,6 @@
 						</ul>
 					</div>
 				<% end %>
-
 	            <div class="col-xs-12 col-sm-12">
 	                <h4>Nombre de usuario</h4>
 	                <%= f.text_field :username, autofocus: true, class: 'form-control' %>
@@ -57,7 +52,6 @@
 					<%= link_to 'Volver', admin_path %>
 				</div>
 			</div>
-
         <% end %>
     </div>
 </section>

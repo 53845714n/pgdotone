@@ -1,5 +1,31 @@
-<h1>New Category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', categories_path %>
+<section class="cuerpo">
+	<div class="container">
+    	<div class="row">
+            <h1>Crear Nueva Categoría</h1>
+        </div>
+		<%= form_for(@category) do |f| %>
+			<div class="row blanco campos">
+				<% if @category.errors.any? %>
+					<div id="error_explanation">
+					    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+					    <ul>
+					        <% @category.errors.full_messages.each do |message| %>
+					        <li><%= message %></li>
+					        <% end %>
+					    </ul>
+					</div>
+				<% end %>
+				<div class="col-xs-12 col-sm-12">
+				    <h4>Nombre categoría</h4>
+				    <%= f.text_field :category_name, autofocus: true, class: 'form-control' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+				    <%= f.submit 'Crear categoría', class: 'btn btn-create btn-ingresar' %>
+				</div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= link_to 'Volver', admin_path %>
+				</div>
+			</div>
+		<% end %>
+    </div>
+</section>

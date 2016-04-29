@@ -76,28 +76,45 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pestana4" aria-expanded="false" aria-controls="pestana4">
-                                    <i class="fa fa-plus-circle"></i> Mantenedor de Noticias
+                                <a class="collapsed" 
+                                    role="button" 
+                                    data-toggle="collapse" 
+                                    data-parent="#accordion"
+                                    href="#pestana4" 
+                                    aria-expanded="false" aria-controls="pestana4">
+                                    <i class="fa fa-plus-circle"></i> Mantenedor de Categorías
                                 </a>
+                                <%= link_to new_category_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nueva categoría
+                                <% end %>
                             </h4>
                         </div>
                         <div id="pestana4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                CONTENIDO MANTENEDOR DE BANNERS
+                                <%= render 'categories' %>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingThree">
                             <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pestana5" aria-expanded="false" aria-controls="pestana5">
-                                    <i class="fa fa-plus-circle"></i> Mantenedor de Ofertas
+                                <a class="collapsed" 
+                                    role="button" 
+                                    data-toggle="collapse" 
+                                    data-parent="#accordion"
+                                    href="#pestana5" 
+                                    aria-expanded="false" 
+                                    aria-controls="pestana5">
+                                    <i class="fa fa-plus-circle"></i> Mantenedor de Subcategorías
                                 </a>
+                                <%= link_to new_subcategory_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nueva subcategoría
+                                <% end %>
                             </h4>
                         </div>
                         <div id="pestana5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                CONTENIDO MANTENEDOR DE BANNERS
+                                <%= render 'subcategories' %>
                             </div>
                         </div>
                     </div>

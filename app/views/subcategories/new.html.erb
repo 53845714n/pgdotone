@@ -1,5 +1,36 @@
-<h1>New Subcategory</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', subcategories_path %>
+<section class="cuerpo">
+	<div class="container">
+    	<div class="row">
+            <h1>Crear Nueva Subcategoría</h1>
+        </div>
+		<%= form_for(@subcategory) do |f| %>
+			<div class="row blanco campos">
+			    <% if @subcategory.errors.any? %>
+			    <div id="error_explanation">
+			        <h2><%= pluralize(@subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
+			        <ul>
+			            <% @subcategory.errors.full_messages.each do |message| %>
+			            <li><%= message %></li>
+			            <% end %>
+			        </ul>
+			    </div>
+			    <% end %>
+			    <div class="col-xs-12 col-sm-12">
+			        <h4>Nombre subcategoría</h4>
+			        <%= f.text_field :subcategory_name, autofocus: true, class: 'form-control' %>
+			    </div>
+			    <div class="col-xs-12 col-sm-12">
+			        <h4>Categoría</h4>
+			        <%= f.select(:category_id,  options_for_select(Category.all.map{ |c| [c.category_name, c.id] }), { class: 'form-control' }) %>
+			    </div>
+			    <br>
+			    <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+			        <%= f.submit 'Crear subcategoría', class: 'btn btn-create btn-ingresar' %>
+			    </div>
+				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+					<%= link_to 'Volver', admin_path %>
+				</div>
+		    </div>
+		<% end %>
+    </div>
+</section>

@@ -12,4 +12,10 @@ module ApplicationHelper
 	def current_image
 		current_user.image.thumb
 	end
+
+	def category_name_through_id(category_id)
+		@category_name = Category
+							.where('id = ?', category_id)
+							.pluck(:category_name)[0]
+	end
 end

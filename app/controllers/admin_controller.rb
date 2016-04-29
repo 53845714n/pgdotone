@@ -3,9 +3,11 @@ class AdminController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@users     = User.all.order('id DESC')
-		@questions = Question.all.order(order: :desc)
-		@banners   = Banner.all
+		@users         = User.all.order('id DESC')
+		@questions     = Question.all.order(order: :desc)
+		@banners       = Banner.all
+		@categories    = Category.all
+		@subcategories = Subcategory.all
 	end
 
 
