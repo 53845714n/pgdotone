@@ -2,36 +2,36 @@
     <table>
         <thead>
             <tr class="mantenedor-titulo">
-                <td  width="20%">Subcategoría</td>
+                <td  width="20%">Nombre</td>
+                <td  width="20%">Descripción</td>
                 <td  width="20%">Categoría</td>
-                <td  width="20%">Creada el</td>
-                <td  width="20%">Actualizada el</td>
+                <td  width="10%">Subcategoría</td>
                 <td  width="10%">Editar</td>
                 <td  width="10%">Eliminar</td>
             </tr>
         </thead>
         <tbody>
-            <% @subcategories.each do |subcategory| %>
+            <% @articles.each do |article| %>
                 <tr>
                     <td>
-                        <%= subcategory.subcategory_name %>
+                        <%= article.article_name %>
                     </td>
                     <td>
-                        <%= category_name_through_id(subcategory.category_id).nil? ? 'sin categoria' : category_name_through_id(subcategory.category_id) %>
+                        <%= article.description %>
                     </td>
                     <td>
-                        <%= subcategory.created_at %>
+                        <%= category_name_through_id(article.category_id).nil? ? 'sin categoria' : category_name_through_id(article.category_id) %>
                     </td>
-                    <td>
-                        <%= subcategory.updated_at %>
+                    <td class="text-center">
+                        <%= subcategory_name_through_id(article.subcategory_id).nil? ? 'sin categoria' : subcategory_name_through_id(article.subcategory_id) %>
                     </td>
                     <td class="icono">
-                        <%= link_to edit_subcategory_path(subcategory.id) do %>
+                        <%= link_to edit_article_path(article.id) do %>
                             <i class="fa fa-cog"></i>
                         <% end %>
                     </td>
                     <td class="icono">
-                        <%= link_to subcategory, method: :delete, data: { confirm: 'Está seguro de querer eliminar esta categoría?' } do %>
+                        <%= link_to article, method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
                             <i class="fa fa-trash"></i>
                         <% end %>
                     </td>

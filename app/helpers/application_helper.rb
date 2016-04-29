@@ -14,8 +14,12 @@ module ApplicationHelper
 	end
 
 	def category_name_through_id(category_id)
-		@category_name = Category
-							.where('id = ?', category_id)
-							.pluck(:category_name)[0]
+		Category.where('id = ?', category_id)
+				.pluck(:category_name)[0]
+	end
+
+	def subcategory_name_through_id(subcategory_id)
+		Subcategory.where('id = ?', subcategory_id)
+					.pluck(:subcategory_name)[0]
 	end
 end

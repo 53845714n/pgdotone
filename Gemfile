@@ -18,6 +18,8 @@ gem 'carrierwave', '~> 0.11.0'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'nprogress-rails'
 
+gem 'ckeditor' # For certain models
+
 group :production do
   gem 'rails_12factor'
   gem 'pg', '~> 0.15'

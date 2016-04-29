@@ -1,6 +1,45 @@
-<h1>Editing Article</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<section class="cuerpo">
+	<div class="container">
+		<div class="row">
+			<h1>Editar artículo</h1>
+		</div>    	
+			<%= form_for(@article, :url => { :action => 'update' } ) do |f| %>
+			<div class="row blanco campos">
+				<%= form_for(@article) do |f| %>
+				    <% if @article.errors.any? %>
+				    <div id="error_explanation">
+				        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+				        <ul>
+				            <% @article.errors.full_messages.each do |message| %>
+				            <li><%= message %></li>
+				            <% end %>
+				        </ul>
+				    </div>
+				    <% end %>
+	    			<div class="col-xs-12 col-sm-12">
+	    			    <h4>Nombre de artículo</h4>
+	    			    <%= f.text_field :article_name, autofocus: true, class: 'form-control' %>
+	    			</div>
+	    			<div class="col-xs-12 col-sm-12">
+	    			    <h4>Descripción</h4>
+	    			    <%= f.text_area :description, autofocus: true, class: 'form-control' %>
+	    			</div>
+	    			<div class="col-xs-12 col-sm-12">
+	    			    <h4>Categoría</h4>
+	    			    <%= f.select :category_id, options_for_select(Category.all.map{ |c| [c.category_name, c.id]}), class: 'form-control' %>
+	    			</div>
+	    			<div class="col-xs-12 col-sm-12">
+	    			    <h4>Subcategoría</h4>
+	    			    <%= f.select :subcategory_id, options_for_select(Subcategory.all.map{ |s| [s.subcategory_name, s.id]}), class: 'form-control' %>
+	    			</div>
+	                <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+	    		    	<%= f.submit 'Editar artículo', class: 'btn btn-create btn-ingresar' %>
+	    			</div>
+	    			<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+	    				<%= link_to 'Volver', admin_path %>
+	    			</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</section>

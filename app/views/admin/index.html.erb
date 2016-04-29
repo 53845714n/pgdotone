@@ -118,6 +118,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" 
+                                    role="button" 
+                                    data-toggle="collapse" 
+                                    data-parent="#accordion"
+                                    href="#pestana6" 
+                                    aria-expanded="false" 
+                                    aria-controls="pestana6">
+                                    <i class="fa fa-plus-circle"></i> Mantenedor de Artículos
+                                </a>
+                                <%= link_to new_article_path, class: 'btn mini_add pull-right create-new' do %> 
+                                    <i class="fa fa-plus-circle"></i> Crear nuevo artículo
+                                <% end %>
+                            </h4>
+                        </div>
+                        <div id="pestana6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <%= render 'articles' %>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

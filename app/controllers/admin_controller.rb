@@ -8,6 +8,7 @@ class AdminController < ApplicationController
 		@banners       = Banner.all
 		@categories    = Category.all
 		@subcategories = Subcategory.all
+		@articles      = Article.all
 	end
 
 
