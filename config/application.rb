@@ -22,5 +22,31 @@ module Integral
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_view.sanitized_allowed_tags = [
+        'strong',
+        'em',
+        'a',
+        'iframe',
+        'img',
+        'style',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'hr',
+        'pre',
+        'p',
+        'textarea',
+        'i',
+        'b',
+        'blockquote',
+        'br',
+        'embed',
+        'frame',
+        'frameset',
+        's'
+    ]
   end
 end
