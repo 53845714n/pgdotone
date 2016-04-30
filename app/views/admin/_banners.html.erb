@@ -2,27 +2,35 @@
     <table>
         <thead>
             <tr class="mantenedor-titulo">
+                <td  width="10%">Orden</td>
                 <td  width="20%">Video</td>
                 <td  width="20%">Imagen</td>
-                <td  width="20%">Des/Act</td>
-                <td  width="20%">Editar</td>
-                <td  width="20%">Eliminar</td>
+                <td  width="20%">Imagen fondo</td>
+                <td  width="10%">Des/Act</td>
+                <td  width="10%">Editar</td>
+                <td  width="10%">Eliminar</td>
             </tr>
         </thead>
         <tbody>
             <% @banners.each do |banner| %>
                 <tr>
-                    <td>
-                        <%= banner.video %>
+                    <td class="icono">
+                        
                     </td>
                     <td>
-                        <%= banner.image %>
+                        <%= video_tag banner.video %>
+                    </td>
+                    <td>
+                        <%= image_tag banner.image.thumb.url %>
+                    </td>
+                    <td>
+                        <%= image_tag banner.background_image.thumb.url %>
                     </td>
                     <td class="icono">
                         <%#= link_to flop_banner_path(banner) do %>
                             <%# banner.active_or_not %>
                             <%# if banner.active? %> 
-                               <!--  <i class="fa fa-check"></i> -->
+                                <!--  <i class="fa fa-check"></i> -->
                             <%# else %>
                                 <!-- <i class="fa fa-close"></i> -->
                             <%# end %>
@@ -34,7 +42,7 @@
                         <% end %>
                     </td>
                     <td class="icono">
-                        <%= link_to delete_banner_path(banner), method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
+                        <%= link_to banner, method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
                             <i class="fa fa-trash"></i>
                         <% end %>
                     </td>

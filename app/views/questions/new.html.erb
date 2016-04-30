@@ -20,19 +20,19 @@
 				<% end %>
 
 				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
-					<%= f.label :name, 'Nombre' %><br>
+					<h4>Nombre</h4>
 					<%= f.text_field :name, class: 'form-control' %>
 				</div>
 				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
-					<%= f.label :answer, 'Pregunta' %><br>
+					<h4>Pregunta</h4>
 					<%= f.text_area :answer, class: 'form-control' %>
 				</div>
 				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
-					<%= f.label :active, 'Estado' %><br>
+					<h4>Estado (visible/no visible)</h4>
 					<%= f.check_box :active %>
 				</div>
 				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
-					<%= f.label :order, 'Orden' %><br>
+					<h4>Orden</h4>
 					<%= f.number_field :order, class: 'form-control' %>
 				</div>
 				<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">

@@ -1,0 +1,139 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="panel-group pestanas" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" 
+                        data-parent="#accordion" 
+                        href="#pestana1" 
+                        aria-expanded="true" 
+                        aria-controls="pestana1">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Usuarios
+                    </a>
+                    <%= link_to new_user_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nuevo usuario
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <%= render 'users' %>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" 
+                        role="button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion" 
+                        href="#pestana2" 
+                        aria-expanded="false" 
+                        aria-controls="pestana2">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Preguntas Frecuentes
+                    </a>
+                    <%= link_to new_question_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nueva pregunta
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <%= render 'questions' %>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" 
+                        role="button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion"
+                        href="#pestana4" 
+                        aria-expanded="false" aria-controls="pestana4">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Categorías
+                    </a>
+                    <%= link_to new_category_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nueva categoría
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <%= render 'categories' %>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" 
+                        role="button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion"
+                        href="#pestana5" 
+                        aria-expanded="false" 
+                        aria-controls="pestana5">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Subcategorías
+                    </a>
+                    <%= link_to new_subcategory_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nueva subcategoría
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <%= render 'subcategories' %>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" 
+                        role="button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion"
+                        href="#pestana6" 
+                        aria-expanded="false" 
+                        aria-controls="pestana6">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Artículos
+                    </a>
+                    <%= link_to new_article_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nuevo artículo
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <%= render 'articles' %>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" 
+                        role="button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion"
+                        href="#pestana7" 
+                        aria-expanded="false" 
+                        aria-controls="pestana7">
+                        <i class="fa fa-plus-circle"></i> Mantenedor de Banners
+                    </a>
+                    <%= link_to new_banner_path, class: 'btn mini_add pull-right create-new' do %> 
+                        <i class="fa fa-plus-circle"></i> Crear nuevo banner
+                    <% end %>
+                </h4>
+            </div>
+            <div id="pestana7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <%= render 'banners' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

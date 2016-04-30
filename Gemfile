@@ -18,7 +18,9 @@ gem 'carrierwave', '~> 0.11.0'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'nprogress-rails'
 
-gem 'ckeditor' # For certain models
+gem 'ckeditor'                       # For certain models
+gem 'carrierwave-video'              # For certain models
+gem 'carrierwave-video-thumbnailer'  # For certain models
 
 group :production do
   gem 'rails_12factor'
