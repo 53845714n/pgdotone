@@ -1,0 +1,56 @@
+<div class="mantenedor-tabla">
+    <table>
+        <thead>
+            <tr class="mantenedor-titulo">
+                <td width="10%">Orden</td>
+                <td width="30%">Imagen</td>
+                <td width="30%">Texto</td>
+                <td width="10%">Des/Act</td>
+                <td width="10%">Editar</td>
+                <td width="10%">Eliminar</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @offers.each do |offer| %>
+                <tr>
+                    <td class="icono">
+                        <% if !offer.nil? && offer.order > 1 %>
+                            <%= link_to down_order_offer_path(offer) do %>
+                                <i class="fa fa-arrow-down"></i>
+                            <% end %>
+                        <% end %>
+                        <%= offer.order %>
+                        <%= link_to up_order_offer_path(offer) do %>
+                            <i class="fa fa-arrow-up"></i>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= image_tag offer.image %>
+                    </td>
+                    <td>
+                        <%= offer.text %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to flop_offer_path(offer) do %>
+                            <% if offer.active? %>
+                                <i class="fa fa-check"></i>
+                            <% else %>
+                                <i class="fa fa-close"></i>
+                            <% end %>
+                        <% end %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to edit_offer_path(offer.id) do %>
+                            <i class="fa fa-cog"></i>
+                         <% end %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to offer, method: :delete, data: { confirm: 'Está seguro de querer eliminar esta pregunta?' } do %>
+                            <i class="fa fa-trash"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -6,6 +6,7 @@ class AdminController < ApplicationController
 		@users         = User.all.order('id DESC')
 		@questions     = Question.all.where(master: false).order(order: :desc)
 		@banners       = Banner.all.where(master: false).order(order: :desc)
+		@offers        = Offer.all.where(master: false).order(order: :desc)
 		@categories    = Category.all
 		@subcategories = Subcategory.all
 		@articles      = Article.all

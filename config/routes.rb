@@ -6,6 +6,15 @@ Rails.application.routes.draw do
   resources :categories
   resources :contacts
   resources :pages
+
+  resources :offers do
+    member do
+      get :flop
+      get :up_order
+      get :down_order
+    end
+  end
+
   resources :banners do
     member do
       get :flop
