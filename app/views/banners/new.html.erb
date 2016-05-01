@@ -32,6 +32,10 @@
                     <%= f.file_field :background_image %>
                 </div>
                 <div class="col-xs-12 col-sm-12">
+                    <h4>Texto</h4>
+                    <%= f.text_area :text, class: 'form-control' %>
+                </div>
+                <div class="col-xs-12 col-sm-12">
                     <h4>Estado (visible/no visible)</h4>
                     <%= f.check_box :active %>
                 </div>

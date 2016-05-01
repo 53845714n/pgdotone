@@ -6,9 +6,10 @@
                 <td  width="20%">Video</td>
                 <td  width="20%">Imagen</td>
                 <td  width="20%">Imagen fondo</td>
+                <td  width="10%">Texto</td>
                 <td  width="10%">Des/Act</td>
-                <td  width="10%">Editar</td>
-                <td  width="10%">Eliminar</td>
+                <td  width="5%">Editar</td>
+                <td  width="5%">Eliminar</td>
             </tr>
         </thead>
         <tbody>
@@ -18,29 +19,28 @@
                         
                     </td>
                     <td>
-                        <%#= video_tag banner.video %>
-                        <!-- <video src="<%#= banner.video.url %>" width="350" height="350" controls></video> -->
-                        <!-- <video src="<%#= banner.video.url %>" width="350" height="350" controls></video> -->
-                        <%#= video_tag banner.video.to_s.gsub!('/home/seb/Rails/integral/app', '') %>
-                        <%#= video_tag '01.mp4' %>
-                        <%#= banner.video.url %>
-                        <video src="<%= banner.video.url.to_s.gsub!('/home/seb/Rails/integral/app/assets/videos/', '/assets/') %>" width="350" height="350" controls></video>
+                        <% if banner.video.to_s.empty? %>
+                            Sin video
+                        <% else %>
+                            <video src="<%= banner.video.url.to_s.gsub!('/home/seb/Rails/integral/app/assets/videos/', '/assets/') %>" width="180" height="180" controls></video>
+                        <% end %>
                     </td>
                     <td>
-                        <%= image_tag banner.image.thumb.url %>
+                        <% if banner.image.to_s.empty? %>
+                            Sin imagen
+                        <% else %>
+                            <%= image_tag banner.image.thumb.url %>
+                        <% end %>
                     </td>
                     <td>
-                        <%= image_tag banner.background_image.thumb.url %>
+                        <% if banner.background_image.to_s.empty? %>
+                            Sin imagen de fondo
+                        <% else %>
+                            <%= image_tag banner.background_image.thumb.url %>
+                        <% end %>
                     </td>
-                    <td class="icono">
-                        <%#= link_to flop_banner_path(banner) do %>
-                            <%# banner.active_or_not %>
-                            <%# if banner.active? %> 
-                                <!--  <i class="fa fa-check"></i> -->
-                            <%# else %>
-                                <!-- <i class="fa fa-close"></i> -->
-                            <%# end %>
-                        <%# end %>
+                    <td>
+                        <%= banner.text %>
                     </td>
                     <td class="icono">
                         <%= link_to edit_banner_path(banner.id) do %>

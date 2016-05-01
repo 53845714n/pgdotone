@@ -4,12 +4,11 @@ class AdminController < ApplicationController
 
 	def index
 		@users         = User.all.order('id DESC')
-		@questions     = Question.all.order(order: :desc)
+		@questions     = Question.all.where(master: false).order(order: :desc)
 		@banners       = Banner.all
 		@categories    = Category.all
 		@subcategories = Subcategory.all
 		@articles      = Article.all
 	end
-
 
 end

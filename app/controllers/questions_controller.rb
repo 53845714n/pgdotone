@@ -24,11 +24,14 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    last_order = Question.select(:order).last
+    params[:question][:order]  = last_order.order + 1
+    params[:question][:master] = false
     @question = Question.new(question_params)
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -56,7 +59,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -91,6 +94,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:name, :answer, :active, :order)
+      params.require(:question).permit(:name, :answer, :active, :order, :master)
     end
 end
