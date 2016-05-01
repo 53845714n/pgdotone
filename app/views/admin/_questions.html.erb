@@ -13,8 +13,10 @@
             <% @questions.each do |question| %>
                 <tr>
                     <td class="icono">
-                        <%= link_to down_order_question_path(question) do %>
-                            <i class="fa fa-arrow-down"></i>
+                        <% if question.order > 1 %>
+                            <%= link_to down_order_question_path(question) do %>
+                                <i class="fa fa-arrow-down"></i>
+                            <% end %>
                         <% end %>
                         <%= question.order %>
                         <%= link_to up_order_question_path(question) do %>

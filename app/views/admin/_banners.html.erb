@@ -16,7 +16,15 @@
             <% @banners.each do |banner| %>
                 <tr>
                     <td class="icono">
-                        
+                        <% if banner.order > 1 %>
+                            <%= link_to down_order_banner_path(banner) do %>
+                                <i class="fa fa-arrow-down"></i>
+                            <% end %>
+                        <% end %>
+                        <%= banner.order %>
+                        <%= link_to up_order_banner_path(banner) do %>
+                            <i class="fa fa-arrow-up"></i>
+                        <% end %>
                     </td>
                     <td>
                         <% if banner.video.to_s.empty? %>
@@ -41,6 +49,15 @@
                     </td>
                     <td>
                         <%= banner.text %>
+                    </td>
+                    <td class="icono">
+                        <%= link_to flop_banner_path(banner) do %>
+                            <% if banner.active? %>
+                                <i class="fa fa-check"></i>
+                            <% else %>
+                                <i class="fa fa-close"></i>
+                            <% end %>
+                        <% end %>
                     </td>
                     <td class="icono">
                         <%= link_to edit_banner_path(banner.id) do %>

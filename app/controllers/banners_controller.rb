@@ -24,6 +24,9 @@ class BannersController < ApplicationController
   # POST /banners
   # POST /banners.json
   def create
+    last_order = Banner.select(:order).last
+    params[:banner][:order]  = last_order.order + 1
+    params[:banner][:master] = false
     @banner = Banner.new(banner_params)
 
     respond_to do |format|
@@ -61,6 +64,28 @@ class BannersController < ApplicationController
     end
   end
 
+  def flop
+    banner = Banner.find(params[:id])
+    banner.active = !banner.active
+    banner.save
+
+    redirect_to admin_path
+  end
+
+  def up_order
+    banner = Banner.find(params[:id])
+    banner.update_attributes(order: banner.order + 1)
+    banner.save
+    redirect_to admin_path
+  end
+
+  def down_order
+    banner = Banner.find(params[:id])
+    banner.update_attributes(order: banner.order - 1)
+    banner.save
+    redirect_to admin_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_banner
@@ -69,6 +94,6 @@ class BannersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def banner_params
-      params.require(:banner).permit(:active, :order, :video, :image, :background_image, :text)
+      params.require(:banner).permit(:active, :order, :video, :image, :background_image, :text, :master)
     end
 end
