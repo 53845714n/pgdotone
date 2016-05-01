@@ -18,7 +18,13 @@
                         
                     </td>
                     <td>
-                        <%= video_tag banner.video %>
+                        <%#= video_tag banner.video %>
+                        <!-- <video src="<%#= banner.video.url %>" width="350" height="350" controls></video> -->
+                        <!-- <video src="<%#= banner.video.url %>" width="350" height="350" controls></video> -->
+                        <%#= video_tag banner.video.to_s.gsub!('/home/seb/Rails/integral/app', '') %>
+                        <%#= video_tag '01.mp4' %>
+                        <%#= banner.video.url %>
+                        <video src="<%= banner.video.url.to_s.gsub!('/home/seb/Rails/integral/app/assets/videos/', '/assets/') %>" width="350" height="350" controls></video>
                     </td>
                     <td>
                         <%= image_tag banner.image.thumb.url %>
