@@ -22,4 +22,8 @@ module ApplicationHelper
 		Subcategory.where('id = ?', subcategory_id)
 					.pluck(:subcategory_name)[0]
 	end
+
+	def first_project_picture(project_id)
+		ProjectPicture.where('project_id = ?', project_id).first
+	end
 end

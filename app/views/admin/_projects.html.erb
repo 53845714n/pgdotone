@@ -4,21 +4,33 @@
 <div class="row blanco campos pb-30">
     <div class="col-xs-12 col-sm-6">
         <h4>Modelos Ingresados</h4>
-        <div class="row pb-30">
-            <div class="col-xs-6">
-                <%= image_tag 'modelo.jpg', class: 'img-responsive' %>
-            </div>
-            <div class="col-xs-6">
-                <h4>Proyecto 1</h4>
-                <a class="btn edit" title="Eliminar" href="#">
-                    <i class="fa fa-trash"></i>
-                </a>
-                <a class="btn edit" title="Editar" href="#">
-                    <i class="fa fa-cog"></i>
-                </a>
-            </div>
-        </div>
-        <div class="row">
+        <% if !@projects.empty? %>
+            <% @projects.each do |project| %>
+                <div class="row pb-30">
+                    <div class="col-xs-6">
+                        <% if first_project_picture(project.id).to_s.empty? %>
+                            <%= image_tag 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Sin%20imagen&w=160&h=160', class: 'img-responsive' %>
+                        <% else %>
+                            <%= image_tag first_project_picture(project.id).image.url, class: 'img-responsive' %>    
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4>
+                            <%= project.project_name %>
+                        </h4>
+                        <%= link_to project, class: 'btn edit', title: 'Eliminar', method: :delete, data: { confirm: 'Está seguro de querer eliminar este proyecto?' } do %>
+                            <i class="fa fa-trash"></i>
+                        <% end %>
+                        <%= link_to edit_project_path(project.id), class: 'btn edit', title: 'Editar' do %>
+                            <i class="fa fa-cog"></i>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <h4>No hay proyectos</h4>
+        <% end %>
+        <!-- <div class="row">
             <div class="col-xs-6">
                 <%= image_tag 'modelo.jpg', class: 'img-responsive' %>
             </div>
@@ -31,12 +43,12 @@
                     <i class="fa fa-cog"></i>
                 </a>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="col-xs-12 col-sm-6">
         <h4></h4>
-        <a class="btn btn-ingresar pull-right">
+        <%= link_to new_project_path, class: 'btn btn-ingresar pull-right' do %>
             <i class="fa fa-plus-circle"></i> Ingresar Nuevo Proyecto
-        </a>
+        <% end %>
     </div>
 </div>

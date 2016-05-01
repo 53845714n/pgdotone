@@ -10,6 +10,7 @@ class AdminController < ApplicationController
 		@categories    = Category.all
 		@subcategories = Subcategory.all
 		@articles      = Article.all
+		@projects      = Project.all
 	end
 
 end

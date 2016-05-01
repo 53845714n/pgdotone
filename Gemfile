@@ -22,6 +22,8 @@ gem 'ckeditor'                       # For certain models
 gem 'carrierwave-video'              # For certain models
 gem 'carrierwave-video-thumbnailer'  # For certain models
 
+gem 'paperclip'                      # To manage project multiple images
+
 group :production do
   gem 'rails_12factor'
   gem 'pg', '~> 0.15'

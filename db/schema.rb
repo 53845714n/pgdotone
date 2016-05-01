@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501061138) do
+ActiveRecord::Schema.define(version: 20160501222404) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -82,6 +82,30 @@ ActiveRecord::Schema.define(version: 20160501061138) do
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_pictures", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "project_pictures", ["project_id"], name: "index_project_pictures_on_project_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "project_name"
+    t.text     "description"
+    t.string   "location"
+    t.boolean  "highlighted"
+    t.boolean  "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "first_video"
+    t.string   "second_video"
+    t.string   "third_video"
   end
 
   create_table "questions", force: :cascade do |t|

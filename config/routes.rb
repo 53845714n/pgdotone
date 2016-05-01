@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :project_pictures
+  resources :projects
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles
   resources :subcategories

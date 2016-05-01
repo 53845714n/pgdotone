@@ -1,0 +1,102 @@
+<section class="cuerpo">
+	<div class="container">
+    	<div class="row">
+            <h1>Editar Proyecto <b><%= @project.project_name %></b></h1>
+        </div>
+        <div class="row blanco campos">
+			<%= form_for(@project, :html => { :class => 'form-horizontal', multipart: true }, :url => { :action => 'update' }) do |f| %>
+			    <% if @project.errors.any? %>
+    			    <div id="error_explanation">
+    			        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+    			        <ul>
+    			            <% @project.errors.full_messages.each do |message| %>
+    			            <li><%= message %></li>
+    			            <% end %>
+    			        </ul>
+    			    </div>
+			    <% end %>
+
+			    <div class="col-xs-12 col-sm-6">
+			        <h4>Nombre Proyecto</h4>
+			        <%= f.text_field :project_name, class: 'form-control' %>
+			    </div>
+			    <div class="col-xs-12 col-sm-6">
+			        <h4>Proyecto Destacado</h4>
+			        <%= f.check_box :highlighted %> <span>(Marcar si es un Proyecto destacado)</span>
+			    </div>
+			    <div class="col-sm-12">
+			        <h4>Reseña Proyecto</h4>
+			        <%= f.cktext_area :description %>
+			    </div>
+			    <div class="col-sm-12">
+			        <h4>Ubicación</h4>
+			        <%= f.text_field :location, class: 'form-control' %>
+			    </div>
+			    <div class="col-sm-12">
+			        <h4>Activo</h4>
+			        <%= f.check_box :active %> <span>(Marcar si estará activo, valor por defecto: desactivado)</span>
+			    </div>
+		    </div>
+            <div class="row blanco campos pb-30">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Primer Video</h4>
+                    <span class="btn btn-large btn-ingresar btn-file">
+                        <i class="fa fa-plus-circle"></i> Examinar
+                        <%= f.file_field :first_video %> 
+                    </span>
+                    <span><%= @project.first_video.to_s.gsub!('/home/seb/Rails/integral/app/assets/videos/', '') %></span>
+                    <div></div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Segundo Video</h4>
+                    <span class="btn btn-large btn-ingresar btn-file">
+                        <i class="fa fa-plus-circle"></i> Examinar
+                        <%= f.file_field :second_video %>
+                    </span>
+                    <div></div>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-12">
+    	            <h4>Tercer Video</h4>
+    	            <span class="btn btn-large btn-ingresar btn-file">
+                        <i class="fa fa-plus-circle"></i> Examinar
+                        <%#= f.file_field :third_video %>
+                    </span>
+    	            <div></div>
+                </div> -->
+                <div class="col-xs-12 col-sm-12">
+                    <h4>Insertar Imagenes</h4>
+                    <span class="btn btn-large btn-ingresar btn-file">
+                        <i class="fa fa-plus-circle"></i> Examinar
+                        <%= file_field_tag "images[]", type: :file, multiple: true %>
+                    </span>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                	<h4>Mapa Ubicacion</h4>
+                	<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6386.255295502264!2d-73.10833069940185!3d-36.83941884877782!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1458005278908" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px;">
+                    <%= f.submit 'Editar proyecto', role: 'button', class: 'btn btn-create btn-ingresar', style: 'border-radius: 0 !important;' %>
+                </div>
+            </div>
+        <% end %>
+        <br>
+        <hr class="style14">
+        <div class="row blanco campos">
+            <div class="col-xs-12 col-sm-6">
+                <h4>Modelos Ingresados</h4>
+                <div class="col-xs-6">
+                	<img class="img-responsive" src="http://lorempixel.com/image_output/sports-q-c-240-180-1.jpg">
+                </div>
+                <div class="col-xs-6">
+	                <h4>Modelo 1</h4>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+	            <h4></h4>
+	            <a class="btn btn-ingresar pull-right">
+            		<i class="fa fa-plus-circle"></i> Ingresar Nuevo Modelo Depto
+            	</a>
+            </div>
+        </div>
+    </div>
+</section>
