@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Department name:</strong>
+  <%= @department_model.department_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @department_model.description %>
+</p>
+
+<p>
+  <strong>Surface:</strong>
+  <%= @department_model.surface %>
+</p>
+
+<p>
+  <strong>Roof:</strong>
+  <%= @department_model.roof %>
+</p>
+
+<p>
+  <strong>Total surface:</strong>
+  <%= @department_model.total_surface %>
+</p>
+
+<p>
+  <strong>Suite bath:</strong>
+  <%= @department_model.suite_bath %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @department_model.active %>
+</p>
+
+<%= link_to 'Edit', edit_department_model_path(@department_model) %> |
+<%= link_to 'Back', department_models_path %>

@@ -1,0 +1,2 @@
+module DepartmentModelsHelper
+end

@@ -26,4 +26,8 @@ module ApplicationHelper
 	def first_project_picture(project_id)
 		ProjectPicture.where('project_id = ?', project_id).first
 	end
+
+	# def first_department_model_picture(project_id)
+	# 	ProjectPicture.where('project_id = ?', project_id).first
+	# end
 end

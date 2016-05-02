@@ -1,0 +1,89 @@
+<div class="row">
+    <h1>Modelos de Departamento</h1>
+</div>
+<div class="row blanco campos pb-30">
+    <div class="col-xs-12 col-sm-12">
+        <h4>Modelos Ingresados</h4>
+        <% if !@department_models.empty? %>
+            
+                <!-- <div class="row pb-30">
+                    <div class="col-xs-6"> -->
+                        <%# if first_department_model_picture(department_model.id).to_s.empty? %>
+                            <%#= image_tag 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Sin%20imagen&w=160&h=160', class: 'img-responsive' %>
+                        <%# else %>
+                            <%#= image_tag first_department_model_picture(department_model.id).image.url, class: 'img-responsive' %>    
+                        <%# end %>
+                    <!-- </div>
+                    <div class="col-xs-6"> -->
+                        <!-- <h4> -->
+                            <%#= department_model.department_name %>
+                        <!-- </h4> -->
+
+                <table class="table table-hover table-responsive text-center">
+                    <thead class="text-center">
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Superficie</th>
+                        <th>Terraza</th>
+                        <th>S. Útil</th>
+                        <th>Dormitorios</th>
+                        <th>Baños</th>
+                        <th>B. en suite</th>
+                        <th>Desde UF.</th>
+                        <th>Activo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </thead>
+                    <% @department_models.each do |department_model| %>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <%= link_to department_model.id, department_model %>
+                                </td>
+                                <td><%= department_model.department_name %></td>
+                                <td><%= sanitize department_model.description %></td>
+                                <td><%= department_model.surface %></td>
+                                <td><%= department_model.roof %></td>
+                                <td><%= department_model.total_surface %></td>
+                                <td><%= department_model.bathroom %></td>
+                                <td><%= department_model.bedroom %></td>
+                                <td>
+                                    <% if department_model.suite_bath %>
+                                        Si
+                                    <% else %> 
+                                        No
+                                    <% end %>
+                                </td>
+                                <td><%= department_model.since_uf %></td>
+                                <td>
+                                    <% if department_model.active %>
+                                        Si
+                                    <% else %> 
+                                        No
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <%= link_to edit_department_model_path(department_model.id), class: 'btn edit', title: 'Editar' do %>
+                                        <i class="fa fa-cog"></i>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <%= link_to department_model, class: 'btn edit', title: 'Eliminar', method: :delete, data: { confirm: 'Está seguro de querer eliminar este proyecto?' } do %>
+                                        <i class="fa fa-trash"></i>
+                                    <% end %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <% end %>
+                </table>
+        <% else %>
+            <h4>No hay proyectos</h4>
+        <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-12">
+        <%= link_to new_department_model_path, class: 'btn btn-ingresar pull-right' do %>
+            <i class="fa fa-plus-circle"></i> Nuevo Modelo Departamento
+        <% end %>
+    </div>
+</div>
