@@ -70,12 +70,11 @@
             <div class="col-sm-4">
                 <h5>Preguntas</h5> 
                 <div class="input-group">
-                    <select class="form-control " style="z-index: 0;">
-                        <option value="0">Seleccione SubCategoría</option>
-                        <option value="1">SubCategoría 1</option>
-                        <option value="2">SubCategoría 2</option>
-                        <option value="3">SubCategoría 3</option>
-                    </select>
+                    <%= f.select :article_id, 
+                    	options_for_select(@articles.collect { |article|
+            				[article.article_name.titleize, article.id] 
+            			}, 0), {}, { 
+            				id: 'articles_select', class: 'form-control', style: 'z-index: 0;' } %>
                 </div>
             </div>
             <% end %>

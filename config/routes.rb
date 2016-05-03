@@ -77,8 +77,10 @@ Rails.application.routes.draw do
   get '/modelos/edificio-montecastello'   => 'pages#edificio_montecastello',   as: 'montecastello'
 
   get 'service/update_subcategories', as: 'update_subcategories'
+  get '/update_subcategories'         => 'service#update_subcategories'
+  get 'service/update_articles',      as: 'update_articles'
+  get '/update_articles'              => 'service#update_articles'
   get 'service/show'
-  get '/update_subcategories' => 'service#update_subcategories'
 
   root 'pages#index'
 end

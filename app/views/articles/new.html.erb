@@ -27,10 +27,10 @@
 				    <h4>Descripción</h4>
 				    <%= f.cktext_area :description %>
 				</div>
-				<div class="col-xs-12 col-sm-12">
-				    <h4>Categoría</h4>
-				    <%= f.select :category_id, Category.all.map { |c| [ c.category_name, c.id ] }, class: 'form-control' %>
-				</div>
+				<!-- <div class="col-xs-12 col-sm-12"> -->
+				    <!-- <h4>Categoría</h4> -->
+				    <%#= f.select :category_id, Category.all.map { |c| [ c.category_name, c.id ] }, class: 'form-control' %>
+				<!-- </div> -->
 				<div class="col-xs-12 col-sm-12">
 				    <h4>Subcategoría</h4>
 				    <%= f.select :subcategory_id, Subcategory.all.map { |s| [ s.subcategory_name, s.id ] }, class: 'form-control' %>

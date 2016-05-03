@@ -4,10 +4,10 @@
             <tr class="mantenedor-titulo">
                 <td  width="20%">Nombre</td>
                 <td  width="20%">Descripción</td>
-                <td  width="20%">Categoría</td>
-                <td  width="10%">Subcategoría</td>
-                <td  width="10%">Editar</td>
-                <td  width="10%">Eliminar</td>
+                <!-- <td  width="20%">Categoría</td> -->
+                <td  width="20%">Subcategoría</td>
+                <td  width="20%">Editar</td>
+                <td  width="20%">Eliminar</td>
             </tr>
         </thead>
         <tbody>
@@ -19,9 +19,9 @@
                     <td>
                         <%= sanitize article.description %>
                     </td>
-                    <td>
-                        <%= category_name_through_id(article.category_id).nil? ? 'sin categoria' : category_name_through_id(article.category_id) %>
-                    </td>
+                    <!-- <td> -->
+                        <%#= category_name_through_id(article.category_id).nil? ? 'sin categoria' : category_name_through_id(article.category_id) %>
+                    <!-- </td> -->
                     <td class="text-center">
                         <%= subcategory_name_through_id(article.subcategory_id).nil? ? 'sin categoria' : subcategory_name_through_id(article.subcategory_id) %>
                     </td>
