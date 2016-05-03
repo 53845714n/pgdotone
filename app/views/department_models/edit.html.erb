@@ -1,6 +1,140 @@
-<h1>Editing Department Model</h1>
+<section class="cuerpo">
+	<div class="container">
+    	<div class="row">
+            <h1>Editar Modelo de Departamento</h1>
+        </div>
 
-<%= render 'form' %>
+	    <%= form_for(@department_model, :html => { :class => 'form-horizontal', multipart: true }) do |f| %>
+	        <% if @department_model.errors.any? %>
+	            <div id="error_explanation">
+	                <h2><%= pluralize(@department_model.errors.count, "error") %> prohibited this department_model from being saved:</h2>
+	                <ul>
+	                    <% @department_model.errors.full_messages.each do |message| %>
+	                    <li><%= message %></li>
+	                    <% end %>
+	                </ul>
+	            </div>
+	        <% end %>
 
-<%= link_to 'Show', @department_model %> |
-<%= link_to 'Back', department_models_path %>
+	        <div class="row blanco campos">
+	            <div class="col-xs-12 col-sm-12">
+	                <h4>Nombre Modelo Departamento</h4>
+	                <%= f.text_field :department_name, class: 'form-control' %>
+	            </div>
+
+	            <div class="col-sm-12">
+	                <h4>Reseña Departamento</h4>
+	                <%= f.cktext_area :description %>
+	            </div>
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-xs-12 col-sm-6">
+	                        <h4>Datos Departamento</h4>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon">Numero de Dormitorios</span>
+	                            <%= f.number_field :bedroom, class: 'form-control' %>
+	                        </div>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon">Numero de Baños</span>
+	                            <%= f.number_field :bathroom, class: 'form-control' %>
+	                        </div>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon uf">Desde</span>
+	                            <%= f.number_field :since_uf, class: 'form-control' %>
+	                            <span class="input-group-addon uf">UF</span>
+	                        </div>
+	                    </div>
+	                    <div class="col-xs-12 col-sm-6">
+	                        <h4>Superficie Departamento</h4>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon">Superficie Total</span>
+	                            <%= f.number_field :surface, class: 'form-control' %>
+	                        </div>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon">Superficie Terraza</span>
+	                            <%= f.number_field :roof, class: 'form-control' %>
+	                        </div>
+	                        <div class="input-group box col-sm-12">
+	                            <span class="input-group-addon">Superficie Util</span>
+	                            <%= f.number_field :total_surface, class: 'form-control' %>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+			</div>
+
+	        <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+	            <div class="col-xs-12 col-md-6">
+	                <h4>Baño en suite</h4>
+	                <%= f.check_box :suite_bath %> <span>(Click en la casilla para indicar que posee baño en suite)</span>
+	            </div>
+	            <div class="col-xs-12 col-md-6">
+	                <h4>Activo</h4>
+	                <%= f.check_box :active %> <span>(Click en la casilla para activar el model de departamento)</span>
+	            </div>
+	        </div>
+
+	        <div class="row blanco campos pb-30">
+	        	<div class="col-xs-12 col-sm-4">
+		            <h4>Añadir Plano</h4>
+		            <!-- <a class="btn btn-ingresar">
+		            	<i class="fa fa-plus-circle"></i> Examinar
+		            </a> -->
+
+	                <span class="btn btn-large btn-ingresar btn-file">
+	                    <i class="fa fa-plus-circle"></i> Examinar
+	                    <%= file_field_tag "plane_images[]", type: :file, multiple: true %>
+	                </span>
+
+		            <!-- <h4>Plano</h4>
+		            <div class="col-sm-12">
+		            	<img src="../images/plano.jpg" class="img-responsive img-thumbnail">
+		            </div> -->
+	            </div>
+	            <div class="col-xs-12 col-sm-4">
+		            <h4>Añadir Orientación</h4>
+		            <!-- <a class="btn btn-ingresar">
+		            	<i class="fa fa-plus-circle"></i> Examinar
+		            </a> -->
+	                <span class="btn btn-large btn-ingresar btn-file">
+	                    <i class="fa fa-plus-circle"></i> Examinar
+	                    <%= file_field_tag "orientation_images[]", type: :file, multiple: true %>
+	                </span>
+		            <!-- <h4>Orientación</h4>
+		            <div class="col-sm-12">
+		            	<img src="../images/orientacion.jpg" class="img-responsive img-thumbnail">
+		            </div> -->
+	            </div>
+	            <div class="col-xs-12 col-sm-4">
+	                <h4>Añadir Vistas</h4>
+	                <!-- <a class="btn btn-ingresar">
+	                	<i class="fa fa-plus-circle"></i> Examinar
+	                </a> -->
+	                <span class="btn btn-large btn-ingresar btn-file">
+	                    <i class="fa fa-plus-circle"></i> Examinar
+	                    <%= file_field_tag "view_images[]", type: :file, multiple: true %>
+	                </span>
+	                <!-- <h4>Imagenes</h4>
+	                <div class="col-sm-3">
+	                	<img src="../images/modelo.jpg" class="img-responsive img-thumbnail">
+	                </div>
+	                <div class="col-sm-3">
+	                	<img src="../images/modelo.jpg" class="img-responsive img-thumbnail">
+	                </div>
+	                <div class="col-sm-3">
+	                	<img src="../images/modelo.jpg" class="img-responsive img-thumbnail">
+	                </div>
+	                <div class="col-sm-3">
+	                	<img src="../images/modelo.jpg" class="img-responsive img-thumbnail">
+	                </div> -->
+	            </div>            
+	        </div>
+
+	        <div class="row">
+	            <div class="col-xs-12 col-md-6 pull-right">
+	                <%= f.submit 'Editar modelo de departamento', role: 'button', class: 'btn btn-create btn-ingresar pull-right', style: 'border-radius: 0 !important;' %>
+	            </div>
+	        </div>
+        <% end %>  
+    </div>
+</section>

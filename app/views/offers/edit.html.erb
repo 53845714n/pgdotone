@@ -1,6 +1,39 @@
-<h1>Editing Offer</h1>
+<section class="cuerpo">
+	<div class="container">
+		<div class="row">
+			<h1>Editar Oferta</h1>
+		</div>  
 
-<%= render 'form' %>
+		<%= form_for(@offer) do |f| %>
+			<% if @offer.errors.any? %>
+			<div id="error_explanation">
+			    <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+			    <ul>
+			        <% @offer.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			        <% end %>
+			    </ul>
+			</div>
+			<% end %>
+			<div class="col-xs-12 col-sm-12">
+			    <h4>Imagen</h4>
+			    <%= f.file_field :image %>
+			</div>
+			<div class="col-xs-12 col-sm-12">
+			    <h4>Texto</h4>
+			    <%= f.text_area :text, autofocus: true, class: 'form-control' %>
+			</div>
+			<!-- <div class="col-xs-12 col-sm-12"> -->
+			    <!-- <%#= f.label :active %><br> -->
+			    <%#= f.check_box :active %>
+			<!-- </div> -->
+			<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+			    <%= f.submit 'Editar oferta', class: 'btn btn-create btn-ingresar' %>
+			</div>
+			<div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+				<%= link_to 'Volver', admin_path %>
+			</div>
+		<% end %>
 
-<%= link_to 'Show', @offer %> |
-<%= link_to 'Back', offers_path %>
+	</div>
+</section>

@@ -16,11 +16,11 @@
 			    </div>
 			    <% end %>
 			    <div class="col-xs-12 col-sm-12">
-			        <%= f.label :subcategory_name %>
+			        <h4>Nombre Subcategoría</h4>
 			        <%= f.text_field :subcategory_name, autofocus: true, class: 'form-control' %>
 			    </div>
 			    <div class="col-xs-12 col-sm-12">
-			        <%= f.label :category_id %>
+			        <h4>Seleccionar Categoría</h4>
 			        <%= f.select(:category_id,  options_for_select(Category.all.map{ |c| [c.category_name, c.id] }), { class: 'form-control' }) %>
 			    </div>
 			    <br>

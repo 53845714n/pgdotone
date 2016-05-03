@@ -1,6 +1,61 @@
-<h1>Editing Banner</h1>
+<section class="cuerpo">
+	<div class="container">
+		<div class="row">
+			<h1>Editar Banner</h1>
+		</div>  
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @banner %> |
-<%= link_to 'Back', banners_path %>
+		<%= form_for(@banner) do |f| %>
+			<% if @banner.errors.any? %>
+			<div id="error_explanation">
+			    <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+			    <ul>
+			        <% @banner.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			        <% end %>
+			    </ul>
+			</div>
+			<% end %>
+			<div class="col-xs-12 col-sm-12">
+                <h4>Video de banner</h4>
+                <% if @banner.video.to_s.empty? %>
+                    Sin video
+                <% else %>
+                    <video src="<%= @banner.video.url.to_s.gsub!('/home/seb/Rails/integral/app/assets/videos/', '/assets/') %>" width="180" height="180" controls></video>
+                <% end %>
+                <%= f.file_field :video %>
+           	    <br>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <h4>Imagen de banner</h4>
+                <% if @banner.image.to_s.empty? %>
+                    Sin imagen
+                <% else %>
+                    <%= image_tag @banner.image.url, style: 'width:350px;height:350px;' %>
+                <% end %>
+                <%= f.file_field :image %>
+            	<br>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <h4>Imagen de fondo</h4>
+                <% if @banner.background_image.to_s.empty? %>
+                    Sin imagen de fondo
+                <% else %>
+                    <%= image_tag @banner.background_image.url, style: 'width:350px;height:350px;' %>
+                <% end %>
+                <%= f.file_field :background_image %>
+            	<br>
+            </div>
+            <div class="col-xs-12 col-sm-12">
+                <h4>Texto</h4>
+                <%= f.text_area :text, class: 'form-control' %>
+            </div>
+            <br>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+                <%= f.submit 'Editar banner', class: 'btn btn-create btn-ingresar' %>
+            </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 15px;">
+                <%= link_to 'Volver', admin_path %>
+            </div>
+		<% end %>
+	</div>
+</section>
