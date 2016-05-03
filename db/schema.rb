@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502011054) do
+ActiveRecord::Schema.define(version: 20160502154327) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
@@ -94,10 +94,32 @@ ActiveRecord::Schema.define(version: 20160502011054) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orientation_pictures", force: :cascade do |t|
+    t.integer  "department_model_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "orientation_pictures", ["department_model_id"], name: "index_orientation_pictures_on_department_model_id"
+
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "plane_pictures", force: :cascade do |t|
+    t.integer  "department_model_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "plane_pictures", ["department_model_id"], name: "index_plane_pictures_on_department_model_id"
 
   create_table "project_pictures", force: :cascade do |t|
     t.integer  "project_id"
@@ -164,5 +186,16 @@ ActiveRecord::Schema.define(version: 20160502011054) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "view_pictures", force: :cascade do |t|
+    t.integer  "department_model_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "view_pictures", ["department_model_id"], name: "index_view_pictures_on_department_model_id"
 
 end

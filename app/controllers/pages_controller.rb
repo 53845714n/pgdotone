@@ -38,9 +38,6 @@ class PagesController < ApplicationController
 	def proceso_compra
 	end
 
-	def servicio_cliente
-	end
-
 	def new
 	end
 

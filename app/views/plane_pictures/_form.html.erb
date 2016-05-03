@@ -1,0 +1,33 @@
+<%= form_for(@plane_picture) do |f| %>
+  <% if @plane_picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plane_picture.errors.count, "error") %> prohibited this plane_picture from being saved:</h2>
+
+      <ul>
+      <% @plane_picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :department_model_id %><br>
+    <%= f.text_field :department_model_id %>
+  </div>
+  <div class="field">
+    <%= f.label :image_file_name %><br>
+    <%= f.text_field :image_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :image_content_type %><br>
+    <%= f.text_field :image_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :image_file_size %><br>
+    <%= f.number_field :image_file_size %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

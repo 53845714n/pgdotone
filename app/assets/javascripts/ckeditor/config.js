@@ -13,7 +13,6 @@ CKEDITOR.editorConfig = function(config) {
     			'Table', 
     			'Iframe',
     			'Source',
-    			'Source',
     			'Undo',
     			'Redo',
     			'-',
@@ -43,7 +42,7 @@ CKEDITOR.editorConfig = function(config) {
 
     			'Link',
     			'Unlink',
-    			 'MediaEmbed',
+    			'MediaEmbed',
 
     			'Image',
     			'Table',

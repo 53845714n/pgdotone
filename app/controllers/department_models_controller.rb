@@ -24,11 +24,32 @@ class DepartmentModelsController < ApplicationController
   # POST /department_models
   # POST /department_models.json
   def create
+    if params[:department_model][:surface] && params[:department_model][:roof]
+      surface = params[:department_model][:surface].to_i
+      root    = params[:department_model][:roof].to_i
+      params[:department_model][:total_surface] = surface + root
+    end
     @department_model = DepartmentModel.new(department_model_params)
 
     respond_to do |format|
       if @department_model.save
-        format.html { redirect_to @department_model, notice: 'Department model was successfully created.' }
+        if params[:plane_images]
+          params[:plane_images].each { |image| 
+            @department_model.plane_pictures.create(image: image)
+          }
+        end
+        if params[:orientation_images]
+          params[:orientation_images].each { |image| 
+            @department_model.orientation_pictures.create(image: image)
+          }
+        end
+        if params[:view_images]
+          params[:view_images].each { |image| 
+            @department_model.view_pictures.create(image: image)
+          }
+        end
+
+        format.html { redirect_to admin_path, notice: 'Department model was successfully created.' }
         format.json { render :show, status: :created, location: @department_model }
       else
         format.html { render :new }
@@ -42,7 +63,7 @@ class DepartmentModelsController < ApplicationController
   def update
     respond_to do |format|
       if @department_model.update(department_model_params)
-        format.html { redirect_to @department_model, notice: 'Department model was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'Department model was successfully updated.' }
         format.json { render :show, status: :ok, location: @department_model }
       else
         format.html { render :edit }
@@ -56,7 +77,7 @@ class DepartmentModelsController < ApplicationController
   def destroy
     @department_model.destroy
     respond_to do |format|
-      format.html { redirect_to department_models_url, notice: 'Department model was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Department model was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

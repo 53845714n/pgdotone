@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plane Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department model</th>
+      <th>Image file name</th>
+      <th>Image content type</th>
+      <th>Image file size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plane_pictures.each do |plane_picture| %>
+      <tr>
+        <td><%= plane_picture.department_model %></td>
+        <td><%= plane_picture.image_file_name %></td>
+        <td><%= plane_picture.image_content_type %></td>
+        <td><%= plane_picture.image_file_size %></td>
+        <td><%= link_to 'Show', plane_picture %></td>
+        <td><%= link_to 'Edit', edit_plane_picture_path(plane_picture) %></td>
+        <td><%= link_to 'Destroy', plane_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plane picture', new_plane_picture_path %>

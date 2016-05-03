@@ -45,42 +45,30 @@
         <div class="row">
             <h1>¿Problemas con tu vivienda? </h1>
 
-            <%#= form_for :trip, url: { action: "show_servicio_cliente" }, html: { method: "get" } do |f| %>
-                <%#= f.select :category_id, options_for_select(@categories.collect { |category|
-                    [category.category_name.titleize, category.id] }, 1), {}, { id: 'categories_select' } %>
-                <%#= f.select :subcategory_id, options_for_select(@subcategories.collect { |subcategory|
-                    [subcategory.subcategory_name.titleize, subcategory.id] }, 0), {}, { id: 'subcategories_select' } %>
-                <%#= f.submit "Go!" %>
-            <%# end %>
+            <%= form_for :trip, url: { action: "show" }, html: { method: "get" } do |f| %>
 
             <div class="col-sm-4">
-                <h5>Categoria </h5> 
+                <h5>Categoría</h5> 
                 <div class="input-group">
-                    <select class="form-control " style="z-index: 0;">
-                        <option value="0">Seleccione Categoría</option>
-                        <% @categories.each do |category| %>
-                            <option value="<%= category.id %>">
-                                <%= category.category_name %>
-                            </option>
-                        <% end %>
-                    </select>
+                	<%= f.select :category_id, 
+                		options_for_select(@categories.collect { |category|
+                    		[category.category_name.titleize, category.id] 
+                    	}, 1), {}, { 
+                    		id: 'categories_select', class: 'form-control', style: 'z-index: 0;' } %>
                 </div>
             </div>
             <div class="col-sm-4">
-                <h5>Categoria </h5> 
+                <h5>Subcategoría </h5> 
                 <div class="input-group">
-                    <select class="form-control " style="z-index: 0;">
-                        <option value="0">Seleccione SubCategoría</option>
-                        <% @subcategories.each do |subcategory| %>
-                            <option value="<%= subcategory.id %>">
-                                <%= subcategory.subcategory_name %>
-                            </option>
-                        <% end %>
-                    </select>
+                    <%= f.select :subcategory_id, 
+                    	options_for_select(@subcategories.collect { |subcategory|
+            				[subcategory.subcategory_name.titleize, subcategory.id] 
+            			}, 0), {}, { 
+            				id: 'subcategories_select', class: 'form-control', style: 'z-index: 0;' } %>
                 </div>
             </div>
             <div class="col-sm-4">
-                <h5>Categoria </h5> 
+                <h5>Preguntas</h5> 
                 <div class="input-group">
                     <select class="form-control " style="z-index: 0;">
                         <option value="0">Seleccione SubCategoría</option>
@@ -90,6 +78,7 @@
                     </select>
                 </div>
             </div>
+            <% end %>
 
             <div class=" col-sm-12">
                 <h5>Descripción</h5>

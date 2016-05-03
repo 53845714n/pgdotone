@@ -35,5 +35,29 @@
   <%= @department_model.active %>
 </p>
 
+<p>
+  <strong>Plane images:</strong>
+  <% @department_model.plane_pictures.each do |plane_picture| %>
+    <%= plane_picture.image_file_name %>
+    <%= image_tag plane_picture.image.url %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Orientation images:</strong>
+  <% @department_model.orientation_pictures.each do |orientation_picture| %>
+    <%= orientation_picture.image_file_name %>
+    <%= image_tag orientation_picture.image.url %>
+  <% end %>
+</p>
+
+<p>
+  <strong>View images:</strong>
+  <% @department_model.view_pictures.each do |view_picture| %>
+    <%= view_picture.image_file_name %>
+    <%= image_tag view_picture.image.url %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_department_model_path(@department_model) %> |
-<%= link_to 'Back', department_models_path %>
+<%= link_to 'Back', admin_path %>

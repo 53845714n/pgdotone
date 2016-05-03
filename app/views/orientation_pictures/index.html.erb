@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Orientation Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department model</th>
+      <th>Image file name</th>
+      <th>Image content type</th>
+      <th>Image file size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orientation_pictures.each do |orientation_picture| %>
+      <tr>
+        <td><%= orientation_picture.department_model %></td>
+        <td><%= orientation_picture.image_file_name %></td>
+        <td><%= orientation_picture.image_content_type %></td>
+        <td><%= orientation_picture.image_file_size %></td>
+        <td><%= link_to 'Show', orientation_picture %></td>
+        <td><%= link_to 'Edit', edit_orientation_picture_path(orientation_picture) %></td>
+        <td><%= link_to 'Destroy', orientation_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Orientation picture', new_orientation_picture_path %>

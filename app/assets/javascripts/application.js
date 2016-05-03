@@ -22,5 +22,6 @@
 //= require main
 //= require nprogress
 //= require nprogress-turbolinks
+//= require service
 //= require ckeditor/init
 //= require ckeditor/config

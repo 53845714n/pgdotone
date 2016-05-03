@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing View Pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department model</th>
+      <th>Image file name</th>
+      <th>Image content type</th>
+      <th>Image file size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @view_pictures.each do |view_picture| %>
+      <tr>
+        <td><%= view_picture.department_model %></td>
+        <td><%= view_picture.image_file_name %></td>
+        <td><%= view_picture.image_content_type %></td>
+        <td><%= view_picture.image_file_size %></td>
+        <td><%= link_to 'Show', view_picture %></td>
+        <td><%= link_to 'Edit', edit_view_picture_path(view_picture) %></td>
+        <td><%= link_to 'Destroy', view_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New View picture', new_view_picture_path %>

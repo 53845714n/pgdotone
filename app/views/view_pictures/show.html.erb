@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Department model:</strong>
+  <%= @view_picture.department_model %>
+</p>
+
+<p>
+  <strong>Image file name:</strong>
+  <%= @view_picture.image_file_name %>
+</p>
+
+<p>
+  <strong>Image content type:</strong>
+  <%= @view_picture.image_content_type %>
+</p>
+
+<p>
+  <strong>Image file size:</strong>
+  <%= @view_picture.image_file_size %>
+</p>
+
+<%= link_to 'Edit', edit_view_picture_path(@view_picture) %> |
+<%= link_to 'Back', view_pictures_path %>

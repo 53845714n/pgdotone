@@ -57,7 +57,7 @@
                                 </td>
                                 <td><%= department_model.since_uf %></td>
                                 <td>
-                                    <% if department_model.active %>
+                                    <% if department_model.active ? 'Si' : 'No' %>
                                         Si
                                     <% else %> 
                                         No
@@ -69,7 +69,7 @@
                                     <% end %>
                                 </td>
                                 <td>
-                                    <%= link_to department_model, class: 'btn edit', title: 'Eliminar', method: :delete, data: { confirm: 'Está seguro de querer eliminar este proyecto?' } do %>
+                                    <%= link_to department_model, class: 'btn edit', title: 'Eliminar', method: :delete, data: { confirm: 'Está seguro de querer eliminar este modelo de departamento?' } do %>
                                         <i class="fa fa-trash"></i>
                                     <% end %>
                                 </td>
