@@ -25,8 +25,10 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     last_order = Question.select(:order).last
-    params[:question][:order]  = last_order.order + 1
-    params[:question][:master] = false
+    if params[:question][:order] && params[:question][:master]
+      params[:question][:order]  = last_order.order + 1
+      params[:question][:master] = false
+    end
     @question = Question.new(question_params)
 
     respond_to do |format|

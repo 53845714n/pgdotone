@@ -8,7 +8,11 @@
 				<% if @question.errors.any? %>
 					<div id="error_explanation" class="col-xs-12 col-sm-12">
 						<h2>
-							<%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:
+							<% if @question.errors.count > 1 %>	
+								<%= @question.errors.count %> errores han impedido la edición de esta pregunta:
+							<% elsif %>
+								<%= @question.errors.count %> error ha impedido la edición de esta pregunta:
+							<% end %>
 						</h2>
 
 						<ul>

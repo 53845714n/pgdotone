@@ -7,7 +7,13 @@
 			<div class="row blanco campos">
 				<% if @category.errors.any? %>
 					<div id="error_explanation">
-					    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+					    <h2>
+					    	<% if @category.errors.count > 1 %>	
+					    		<%= @category.errors.count %> errores han impedido la creación de esta categoría:
+					    	<% elsif %>
+					    		<%= @category.errors.count %> error ha impedido la creación de esta categoría:
+					    	<% end %>
+					    </h2>
 					    <ul>
 					        <% @category.errors.full_messages.each do |message| %>
 					        <li><%= message %></li>

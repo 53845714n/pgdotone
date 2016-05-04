@@ -3,6 +3,10 @@ es:
   activerecord:
     models:
       user: "Usuario"
+      question: "Pregunta"
+      category: "Categoría"
+      subcategory: "Subcategoría"
+      article: "Artículo"
     attributes: 
       user:
         email: "E-mail"
@@ -10,6 +14,18 @@ es:
         username: "Nombre de usuario"
         fullname: "Nombre"
         image: "Imagen"
+      question:
+        name: "Título"
+        answer: "Respuesta"
+      category:
+        category_name: "Nombre de categoría"
+      subcategory:
+        subcategory_name: "Nombre de subcategoría"
+        category_id: "Categoría"
+      article:
+        article_name: "Nombre de artículo"
+        description: "Descripción"
+        subcategory_id: "Subcategoría"
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

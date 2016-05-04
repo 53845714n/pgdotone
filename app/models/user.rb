@@ -14,8 +14,9 @@ class User < ActiveRecord::Base
 		format: { 
 			with: %r{\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z}, 
 			message: 'El correo ingresado no tiene el formato indicado' 
-		}
-	validates :username,              presence: true, length: { in: 3..50 }
+		},
+		uniqueness: true
+	validates :username,              presence: true, length: { in: 3..50 }, uniqueness: true
 	validates :fullname,              presence: true, length: { in: 3..50 }
 	validates :password,              presence: true
 	validates :password_confirmation, presence: true

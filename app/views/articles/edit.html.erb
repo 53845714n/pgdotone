@@ -8,7 +8,13 @@
 				<%= form_for(@article) do |f| %>
 				    <% if @article.errors.any? %>
 				    <div id="error_explanation">
-				        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+				        <h2>
+				        	<% if @article.errors.count > 1 %>	
+				        		<%= @article.errors.count %> errores han impedido la edición de este artículo:
+				        	<% elsif %>
+				        		<%= @article.errors.count %> error ha impedido la edición de este artículo:
+				        	<% end %>
+				        </h2>
 				        <ul>
 				            <% @article.errors.full_messages.each do |message| %>
 				            <li><%= message %></li>

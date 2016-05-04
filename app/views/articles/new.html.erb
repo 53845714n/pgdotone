@@ -9,7 +9,11 @@
 				<% if @article.errors.full_messages.any? %>
 					<div id="error_explanation" class="col-xs-12 col-sm-12">
 						<h2>
-							<%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
+							<% if @article.errors.count > 1 %>	
+								<%= @article.errors.count %> errores han impedido la creación de este artículo:
+							<% elsif %>
+								<%= @article.errors.count %> error ha impedido la creación de este artículo:
+							<% end %>
 						</h2>
 						<ul>
 							<% @article.errors.full_messages.each do |message| %>
