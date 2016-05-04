@@ -23,6 +23,9 @@ module Integral
     config.assets.paths << "#{Rails.root}/app/assets/videos"
     config.assets.enabled = true
 
+    # Change internationalization to spanish
+    config.i18n.default_locale = :es
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.sanitized_allowed_tags = [

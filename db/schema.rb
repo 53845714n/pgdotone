@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160502154327) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string   "article_name"
     t.text     "description"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
-  add_index "articles", ["subcategory_id"], name: "index_articles_on_subcategory_id"
+  add_index "articles", ["category_id"], name: "index_articles_on_category_id", using: :btree
+  add_index "articles", ["subcategory_id"], name: "index_articles_on_subcategory_id", using: :btree
 
   create_table "banners", force: :cascade do |t|
     t.boolean  "active",           default: false
@@ -56,8 +59,8 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -103,7 +106,7 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "orientation_pictures", ["department_model_id"], name: "index_orientation_pictures_on_department_model_id"
+  add_index "orientation_pictures", ["department_model_id"], name: "index_orientation_pictures_on_department_model_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -119,7 +122,7 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "plane_pictures", ["department_model_id"], name: "index_plane_pictures_on_department_model_id"
+  add_index "plane_pictures", ["department_model_id"], name: "index_plane_pictures_on_department_model_id", using: :btree
 
   create_table "project_pictures", force: :cascade do |t|
     t.integer  "project_id"
@@ -130,7 +133,7 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "project_pictures", ["project_id"], name: "index_project_pictures_on_project_id"
+  add_index "project_pictures", ["project_id"], name: "index_project_pictures_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "project_name"
@@ -162,7 +165,7 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id"
+  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -184,8 +187,8 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "view_pictures", force: :cascade do |t|
     t.integer  "department_model_id"
@@ -196,6 +199,13 @@ ActiveRecord::Schema.define(version: 20160502154327) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "view_pictures", ["department_model_id"], name: "index_view_pictures_on_department_model_id"
+  add_index "view_pictures", ["department_model_id"], name: "index_view_pictures_on_department_model_id", using: :btree
 
+  add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "subcategories"
+  add_foreign_key "orientation_pictures", "department_models"
+  add_foreign_key "plane_pictures", "department_models"
+  add_foreign_key "project_pictures", "projects"
+  add_foreign_key "subcategories", "categories"
+  add_foreign_key "view_pictures", "department_models"
 end

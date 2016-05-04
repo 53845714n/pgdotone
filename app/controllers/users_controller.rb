@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	# Authenticate before proceed any
 	before_filter :authenticate_user!
+	before_filter :find_user, only: :destroy
 
 	def new  
 		@user = User.new
@@ -51,7 +52,19 @@ class UsersController < ApplicationController
 		redirect_to admin_path
 	end
 
+	def destroy
+	    @user.destroy
+	    respond_to do |format|
+	        format.html { redirect_to admin_path, notice: 'Usuario eliminado exitosamente.' }
+	        format.json { head :no_content }
+	    end
+	end
+
 	private
+
+	def find_user
+		@user = User.find(params[:id])
+	end
 
 	def user_params
 		params.require(:user).permit(:username, :fullname, :admin, :active, :email, :password, :password_confirmation, :image)

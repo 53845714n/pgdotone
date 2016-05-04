@@ -42,7 +42,7 @@
                         <% end %>
                     </td>
                     <td class="icono">
-                        <%= link_to delete_user_path(user), method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
+                        <%= link_to user, method: :delete, data: { confirm: 'Está seguro de querer eliminar este usuario?' } do %>
                             <i class="fa fa-trash"></i>
                         <% end %>
                     </td>

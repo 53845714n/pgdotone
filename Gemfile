@@ -23,6 +23,7 @@ gem 'carrierwave-video'              # For certain models
 gem 'carrierwave-video-thumbnailer'  # For certain models
 
 gem 'paperclip'                      # To manage project multiple images
+gem 'client_side_validations'        # Add client side validations
 
 group :production do
   gem 'rails_12factor'

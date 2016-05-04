@@ -9,7 +9,11 @@
 				<% if @user.errors.full_messages.any? %>
 					<div id="error_explanation" class="col-xs-12 col-sm-12">
 						<h2>
-							<%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+							<% if @user.errors.count > 1 %>	
+								<%= @user.errors.count %> errores han impedido la creación de este usuario:
+							<% elsif %>
+								<%= @user.errors.count %> error ha impedido la creación de este usuario:
+							<% end %>
 						</h2>
 						<ul>
 							<% @user.errors.full_messages.each do |message| %>

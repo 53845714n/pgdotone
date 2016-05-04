@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   get 'service/index'
 
   mount Ckeditor::Engine => '/ckeditor'
