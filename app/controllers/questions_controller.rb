@@ -25,15 +25,14 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     last_order = Question.select(:order).last
-    if params[:question][:order] && params[:question][:master]
-      params[:question][:order]  = last_order.order + 1
-      params[:question][:master] = false
-    end
+    last_order = last_order.order + 1
+    params[:question][:order]  = last_order
+    params[:question][:master] = false
     @question = Question.new(question_params)
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to admin_path, notice: 'Question was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Pregunta creada exitosamente.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -61,7 +60,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to admin_path, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Pregunta eliminada exitosamente' }
       format.json { head :no_content }
     end
   end

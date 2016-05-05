@@ -1,0 +1,83 @@
+<%= render 'layouts/user_header' %>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12">
+      <p>
+        <strong>Nombre departamento:</strong>
+        <%= @department_model.department_name %>
+      </p>
+
+      <p>
+        <strong>Descripción:</strong>
+        <%= sanitize @department_model.description %>
+      </p>
+
+      <p>
+        <strong>Superficie:</strong>
+        <%= @department_model.surface %>
+      </p>
+
+      <p>
+        <strong>Terrza:</strong>
+        <%= @department_model.roof %>
+      </p>
+
+      <p>
+        <strong>Superficie Total:</strong>
+        <%= @department_model.total_surface %>
+      </p>
+
+      <p>
+        <strong>Baño en Suite:</strong>
+        <% if @department_model.suite_bath %>
+          Si
+        <% else %>
+          No
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Active:</strong>
+        <% if @department_model.active %>
+          Si
+        <% else %>
+          No
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Plane images:</strong>
+        <% @department_model.plane_pictures.each do |plane_picture| %>
+          <%= image_tag plane_picture.image.url, class: 'img-responsive img-thumbnail', width: '350', height: '350' %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Orientation images:</strong>
+        <% @department_model.orientation_pictures.each do |orientation_picture| %>
+          <%= image_tag orientation_picture.image.url, class: 'img-responsive img-thumbnail', width: '350', height: '350' %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>View images:</strong>
+        <% @department_model.view_pictures.each do |view_picture| %>
+          <%= image_tag view_picture.image.url, class: 'img-responsive img-thumbnail', width: '350', height: '350' %>
+        <% end %>
+      </p>
+    </div>  
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to 'Edit', edit_department_model_path(@department_model) %> |
+<%= link_to 'Back', admin_path %>
