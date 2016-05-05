@@ -7,7 +7,13 @@
 		<%= form_for(@offer) do |f| %>
 			<% if @offer.errors.any? %>
 			<div id="error_explanation">
-			    <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+			    <h2>
+			    	<% if @offer.errors.count > 1 %>	
+			    		<%= @offer.errors.count %> errores han impedido la edición de esta oferta:
+			    	<% elsif %>
+			    		<%= @offer.errors.count %> error ha impedido la edición de esta oferta:
+			    	<% end %>
+			    </h2>
 			    <ul>
 			        <% @offer.errors.full_messages.each do |message| %>
 			        <li><%= message %></li>

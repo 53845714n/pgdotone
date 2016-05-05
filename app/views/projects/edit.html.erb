@@ -7,7 +7,13 @@
 			<%= form_for(@project, :html => { :class => 'form-horizontal', multipart: true }, :url => { :action => 'update' }) do |f| %>
 			    <% if @project.errors.any? %>
     			    <div id="error_explanation">
-    			        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+                        <h2>
+                            <% if @project.errors.count > 1 %> 
+                                <%= @project.errors.count %> errores han impedido la edición de este proyecto:
+                            <% elsif %>
+                                <%= @project.errors.count %> error ha impedido la edición de este proyecto:
+                            <% end %>
+                        </h2>
     			        <ul>
     			            <% @project.errors.full_messages.each do |message| %>
     			            <li><%= message %></li>

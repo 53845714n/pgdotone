@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 	mount_uploader :second_video, VideoUploader
 	mount_uploader :third_video,  VideoUploader
 
+	validates :project_name, presence: true, length: { in: 3..50 }, uniqueness: true
+
     def set_success(format, opts)
     	self.success = true
     end

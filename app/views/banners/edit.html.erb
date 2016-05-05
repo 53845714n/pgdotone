@@ -7,7 +7,13 @@
 		<%= form_for(@banner) do |f| %>
 			<% if @banner.errors.any? %>
 			<div id="error_explanation">
-			    <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+			    <h2>
+                    <% if @banner.errors.count > 1 %> 
+                        <%= @banner.errors.count %> errores han impedido la creación de este banner:
+                    <% elsif %>
+                        <%= @banner.errors.count %> error ha impedido la creación de este banner:
+                    <% end %>
+                </h2>
 			    <ul>
 			        <% @banner.errors.full_messages.each do |message| %>
 			        <li><%= message %></li>

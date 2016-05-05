@@ -8,7 +8,11 @@
                 <% if @banner.errors.any? %>
                     <div id="error_explanation" class="col-xs-12 col-sm-12">
                         <h2>
-                            <%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:
+                            <% if @banner.errors.count > 1 %> 
+                                <%= @banner.errors.count %> errores han impedido la edición de este banner:
+                            <% elsif %>
+                                <%= @banner.errors.count %> error ha impedido la edición de este banner:
+                            <% end %>
                         </h2>
 
                         <ul>
