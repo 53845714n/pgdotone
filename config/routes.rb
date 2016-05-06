@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :contacts
   resources :pages
+  resources :banners
 
   resources :offers do
     member do
@@ -79,6 +80,9 @@ Rails.application.routes.draw do
   get 'service/update_articles',      as: 'update_articles'
   get '/update_articles'              => 'service#update_articles'
   get 'service/show'
+
+  get '/banners', to: redirect('/welcome/index')
+  #get '/banners', to: redirect('/admin/index')
 
   root 'pages#index'
 end
