@@ -10,21 +10,16 @@
                 </ol>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                    	<%= image_tag 'slider-1.jpg', alt: '...' %>
-                        <div class="carousel-caption">
+                    <% @banners.each_with_index do |banner, index| %>
+                        <div class="item <%= 'active' if index == 0 %>">
+                        	<%= image_tag banner.image %>
+                            <% if !banner.background_image.url.nil? %>
+                                <%= image_tag banner.background_image, class: 'png-over' %>
+                            <% end %>
+                            <div class="carousel-caption">
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                    	<%= image_tag 'slider-2.jpg', alt: '...' %>
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                    <div class="item">
-                    	<%= image_tag 'slider-3.jpg', alt: '...' %>
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
+                    <% end %>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

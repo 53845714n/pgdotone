@@ -43,40 +43,45 @@
 <section class="cuerpo2">
     <div class="container">
         <div class="row">
-            <h1>¿Problemas con tu vivienda? </h1>
+            <h1>¿Problemas con tu vivienda?</h1>
 
             <%= form_for :trip, url: { action: "show" }, html: { method: "get" } do |f| %>
-
-            <div class="col-sm-4">
-                <h5>Categoría</h5> 
-                <div class="input-group">
-                	<%= f.select :category_id, 
-                		options_for_select(@categories.collect { |category|
-                    		[category.category_name.titleize, category.id] 
-                    	}, 1), {}, { 
-                    		id: 'categories_select', class: 'form-control', style: 'z-index: 0;' } %>
+                <div class="col-sm-4">
+                    <h5>Categoría</h5> 
+                    <div class="input-group">
+                        <% if !@categories.empty? %>
+                        	<%= f.select :category_id, 
+                        		options_for_select(@categories.collect { |category|
+                            		[category.category_name.titleize, category.id] 
+                            	}, 1), {}, { 
+                            		id: 'categories_select', class: 'form-control', style: 'z-index: 0;' } %>
+                        <% end %>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <h5>Subcategoría </h5> 
-                <div class="input-group">
-                    <%= f.select :subcategory_id, 
-                    	options_for_select(@subcategories.collect { |subcategory|
-            				[subcategory.subcategory_name.titleize, subcategory.id] 
-            			}, 0), {}, { 
-            				id: 'subcategories_select', class: 'form-control', style: 'z-index: 0;' } %>
+                <div class="col-sm-4">
+                    <h5>Subcategoría </h5> 
+                    <div class="input-group">
+                        <% if !@subcategories.empty? %>
+                            <%= f.select :subcategory_id, 
+                                options_for_select(@subcategories.collect { |subcategory|
+                                    [subcategory.subcategory_name.titleize, subcategory.id] 
+                                }, 0), {}, { 
+                                    id: 'subcategories_select', class: 'form-control', style: 'z-index: 0;' } %>
+                        <% end %>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <h5>Preguntas</h5> 
-                <div class="input-group">
-                    <%= f.select :article_id, 
-                    	options_for_select(@articles.collect { |article|
-            				[article.article_name.titleize, article.id] 
-            			}, 0), {}, { 
-            				id: 'articles_select', class: 'form-control', style: 'z-index: 0;' } %>
+                <div class="col-sm-4">
+                    <h5>Preguntas</h5> 
+                    <div class="input-group">
+                        <% if !@subcategories.empty? %>
+                            <%= f.select :article_id, 
+                            	options_for_select(@articles.collect { |article|
+                    				[article.article_name.titleize, article.id] 
+                    			}, 0), {}, { 
+                    				id: 'articles_select', class: 'form-control', style: 'z-index: 0;' } %>
+                        <% end %>        
+                    </div>
                 </div>
-            </div>
             <% end %>
 
             <div class=" col-sm-12">
@@ -84,6 +89,8 @@
                 <textarea class="form-control" type="text"></textarea>
             </div>
         </div>
-        <div class="scliente"><h2>para mayor información envié un correo a postventa@iintegral.cl</h2></div>
+        <div class="scliente">
+            <h2>para mayor información envié un correo a postventa@iintegral.cl</h2>
+        </div>
     </div>
 </section>

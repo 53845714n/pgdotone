@@ -36,7 +36,7 @@
                 <% if @banner.image.to_s.empty? %>
                     Sin imagen
                 <% else %>
-                    <%= image_tag @banner.image.url, style: 'width:350px;height:350px;' %>
+                    <%= image_tag @banner.image.url, style: 'width:350px;height:350px;', id: 'fileUpload' %>
                 <% end %>
                 <%= f.file_field :image %>
             	<br>
@@ -65,3 +65,31 @@
 		<% end %>
 	</div>
 </section>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        window.URL = window.URL || window.webkitURL;
+        $("#new_banner").submit(function(e) {
+            var form = this;
+            e.preventDefault();
+            var fileInput = $(this).find("input[type=file]#fileUpload")[0],
+                file = fileInput.files && fileInput.files[0];
+            if(file) {
+                var img = new Image();
+                img.src = window.URL.createObjectURL(file);
+                img.onload = function() {
+                    var width = img.naturalWidth,
+                        height = img.naturalHeight;
+                    window.URL.revokeObjectURL(img.src);
+                    if(width >= 1500 && height >= 450) {
+                        form.submit();
+                    } else {
+                        alert('La imagen no tiene las dimensiones necesarias');
+                    }
+                };
+            } else { //No file was input or browser doesn't support client side reading
+                form.submit();
+            }
+        });
+    });
+</script>

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 	def index
+		@banners = Banner.all.where(master: false)
 	end
 
 	def proyectos

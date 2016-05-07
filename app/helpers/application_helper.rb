@@ -27,6 +27,10 @@ module ApplicationHelper
 		ProjectPicture.where('project_id = ?', project_id).first
 	end
 
+	def active_class(banner)
+		"active" if Banner.second
+	end
+
 	# def first_department_model_picture(project_id)
 	# 	ProjectPicture.where('project_id = ?', project_id).first
 	# end
